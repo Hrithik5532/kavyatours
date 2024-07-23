@@ -1,0 +1,156 @@
+
+.page-cover .container {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dropdown-menu.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+.main-navbar .navbar-nav>li>a .fa-angle-down {
+  margin-top: 3px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.top-bar nav.navbar ul.nav-list li form>i.fa-search {
+  top: 11px;
+}
+
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1140px;
+  }
+}
+
+.row>.owl-carousel {
+  padding: 0;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.side-bar .detail-block table tr:last-child td {
+  background: #333;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.custom-form button {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+#example_filter input {}
+
+#example_length select {
+  min-width: 50px;
+  height: 27px;
+}
+
+.table>:not(caption)>*>* {
+  background-color: transparent;
+}
+
+@media (max-width: 991.9px) {
+  li.nav-item.list-inline-item.dropdown.messages .dropdown-menu {
+    transform: translateX(90px);
+  }
+
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu {
+    font-size: 15px;
+    -webkit-transform: translateX(40px);
+    transform: translateX(40px);
+  }
+}
+
+.table td, .table th {
+  padding: 0.75rem;
+  border-bottom: 0;
+}
+
+.table tbody tr:nth-of-type(odd) ,
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .05);
+}
+
+.table-light, .table-light>td, .table-light>th {
+  background-color: #fdfdfe;
+}
+
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+
+.box .add-new a {
+  padding: 10px 20px;
+}
+
+.box .tools-btns a i {
+  padding: 12px 20px;
+}
+
+
+.input-group{display: flex;}
+
+select{flex: 1;}
+.form-control {
+  width: 100%;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  text-align: left !important;
+}
+
+
+.form-group{position: relative;}
+
+
+.flight-listing-form form .form-group .form-control, .car-listing-form form .form-group .form-control, .cruise-listing-form form .form-group .form-control, .tour-listing-form form .form-group .form-control, .hotel-listing-form form .form-group .form-control{
+  padding-right: 10px;
+}
+
+.media{display: flex;align-items: flex-start;}
+.content .message-details .message-details-text .message-details-body .media {margin-bottom: 20px;align-items: center;}
+.content .message-details .message-details-text .message-details-body .media img{min-width: 80px;height: 80px;}
+.content .message-details .message-details-text .message-details-body .media .media-body h5{padding: 0;}
+.content .message-details .message-details-text .message-details-body .media .media-body p{padding: 0;margin-bottom: 0;}
+.content .message-details .message-details-text .message-details-footer ul.attachment-image li {
+  margin-bottom: 10px;
+}
+
+
+.content{padding-bottom: 1px;}
+
+
+table.dataTable > tbody > tr.child ul.dtr-details {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+table.dataTable > tbody > tr.child ul.dtr-details > li{display: flex;justify-content: space-between;}
+.dashbaord .box .dashboard-boxes .col-4+.col{padding: 0 20px !important;}
+.content table tr td{vertical-align: middle;}

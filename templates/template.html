@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from shreethemes.net/geotrip-live/geotrip/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 13:03:59 GMT -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kavya Booking </title>
+  <link rel="icon" type="image/x-icon" href="../static/img/logo.png">
+
+
+  <meta property="og:title" content="Kavya Bus Booking | Tours and Travels" />
+<meta property="og:description" content="Book Your Journey. Travel Smart, Travel Safe With Kavya Travels." />
+<meta property="og:image" content="https://test.trizyn.com/static/img/logo.png" />
+<meta property="og:url" content="https://test.trizyn.com" />
+
+  <!-- All Plugins -->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/animation.css" rel="stylesheet">
+  <link href="../static/css/dropzone.min.css" rel="stylesheet">
+  <link href="../static/css/flatpickr.min.css" rel="stylesheet">
+  <link href="../static/css/flickity.min.css" rel="stylesheet">
+  <link href="../static/css/lightbox.min.css" rel="stylesheet">
+  <link href="../static/css/magnifypopup.css" rel="stylesheet">
+  <link href="../static/css/select2.min.css" rel="stylesheet">
+  <link href="../static/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="../static/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="../static/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper">
+
+    {% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+        {% elif message.tags == 'warning' %}
+            <div class="alert alert-warning" role="alert">
+        {% elif message.tags == 'success' %}
+            <div class="alert alert-success" role="alert">
+        {% elif message.tags == 'info' %}
+            <div class="alert alert-info" role="alert">
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+        {% endif %}
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+    <!-- ============================================================== -->
+    <!-- Top header  -->
+    <!-- ============================================================== -->
+    <!-- Start Navigation -->
+    <div class="header header-light">
+      <div class="container">
+        <nav id="navigation" class="navigation navigation-landscape">
+          <div class="nav-header">
+            <a class="nav-brand" href="#"><img src="../static/img/logo.png" class="logo" alt=""></a>
+            <div class="nav-toggle"></div>
+            <div class="mobile_nav">
+              <ul>
+                {% if request.user.is_authenticated %}
+                <li class="currencyDropdown me-2">
+                  <a href="{% url 'logout' %}" class="nav-link"><span
+                      class="fw-medium">Logout</span></a>
+                </li>
+           
+              <li class="list-buttons">
+                <a href="{% url 'profile' %}" class="bg-success" style="width:100%"><i
+                    class="fa-regular fa-circle-user fs-6 me-2"></i>Profile</a>
+              </li>
+
+              {% else %}
+
+              <li class="list-buttons">
+                <a href="#" class="bg-primary" style="width:100%" data-bs-toggle="modal" data-bs-target="#login"><i
+                    class="fa-regular fa-circle-user fs-6 me-2"></i>Sign In / Register</a>
+              </li>
+
+              {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="nav-menus-wrapper" style="transition-property: none;">
+            <ul class="nav-menu">
+
+              <li><a href="{% url 'home' %}">Home<span class="submenu-indicator"></span></a>
+               
+              </li>
+
+              <li><a href="{% url 'available_routes' %}">Book Now<span class="submenu-indicator"></span></a>
+                
+                 
+                  
+               </li>
+
+              <li><a href="JavaScript:Void(0);">Gallery<span class="submenu-indicator"></span></a>
+              </li>
+
+              <li><a href="{% url 'about' %}">About<span class="submenu-indicator"></span></a>
+                
+              </li>
+
+              <li><a href="{% url 'contact' %}" target="_blank">Contact Us</a></li>
+
+            </ul>
+
+            <ul class="nav-menu nav-menu-social align-to-right">
+              {% if request.user.is_authenticated %}
+                <li class="currencyDropdown me-2">
+                  <a href="{% url 'logout' %}" class="nav-link"><span
+                      class="fw-medium">Logout</span></a>
+                </li>
+              
+              <li class="list-buttons">
+                <a href="{% url 'profile' %}" class="bg-success" ><i
+                    class="fa-regular fa-circle-user fs-6 me-2"></i>Profile</a>
+              </li>
+
+              {% else %}
+
+              <li class="list-buttons">
+                <a href="#" class="bg-primary" data-bs-toggle="modal" data-bs-target="#login"><i
+                    class="fa-regular fa-circle-user fs-6 me-2"></i>Sign In / Register</a>
+              </li>
+
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- End Navigation -->
+    <div class="clearfix"></div>
+    <!-- ============================================================== -->
+    <!-- Top header  -->
+    <!-- ============================================================== -->
+
+{% block body %}
+
+{% endblock body %}
+
+
+
+    <!-- ============================ Footer Start ================================== -->
+    <footer class="footer skin-light-footer">
+        <div>
+          <div class="container">
+            <div class="row">
+  
+              <div class="col-lg-3 col-md-4">
+                <div class="footer-widget">
+                  <div class="d-flex align-items-start flex-column mb-3">
+                    <div class="d-inline-block"><img src="../static/img/logo.png" class="img-fluid" width="160"
+                        alt="Footer Logo">
+                    </div>
+                  </div>
+                  <div class="footer-add pe-xl-3">
+                    <p>We make journey with Comfort and Confidence..</p>
+                  </div>
+                  <div class="foot-socials">
+                    <ul>
+                      <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>
+                      <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>
+                      <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-google-plus"></i></a></li>
+                      <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>
+                      <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4">
+                <div class="footer-widget">
+                  <h4 class="widget-title">Quick Links</h4>
+                  <ul class="footer-menu">
+                    <li><a href="JavaScript:Void(0);">Login</a></li>
+
+                    <li><a href="JavaScript:Void(0);">Quick Booking</a></li>
+                    <li><a href="JavaScript:Void(0);">Previous Bookings</a></li>
+                    <li><a href="JavaScript:Void(0);">FAQ's</a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-4">
+                <div class="footer-widget">
+                  <h4 class="widget-title">Useful Links</h4>
+                  <ul class="footer-menu">
+                    <li><a href="JavaScript:Void(0);">Profile</a></li>
+                    <li><a href="JavaScript:Void(0);">Gallery</a></li>
+                    <li><a href="JavaScript:Void(0);">About Us</a></li>
+                    <li><a href="JavaScript:Void(0);">Testimonials</a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-6">
+                <div class="footer-widget">
+                  <h4 class="widget-title">Policies</h4>
+                  <ul class="footer-menu">
+                    <li><a href="JavaScript:Void(0);">Refund Policies</a></li>
+                    <li><a href="{% url 'privacy_policy' %}">Privacy Policies</a></li>
+                    <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
+           
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                  <h4 class="widget-title">Payment Methods</h4>
+                  <div class="pmt-wrap">
+                    <img src="../static/img/payment.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="our-prtwrap mt-4">
+                    <div class="prtn-title">
+                      <p class="text-muted-2 fw-medium">Our Partners</p>
+                    </div>
+                    <div class="prtn-thumbs d-flex align-items-center justify-content-start">
+                      <div class="pmt-wrap pe-4">
+                        <img src="../static/img/mytrip.png" class="img-fluid" alt="">
+                      </div>
+                      <div class="pmt-wrap pe-4">
+                        <img src="../static/img/tripadv.png" class="img-fluid" alt="">
+                      </div>
+                      <div class="pmt-wrap pe-4">
+                        <img src="../static/img/goibibo.png" class="img-fluid" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+  
+        <div class="footer-bottom border-top">
+          <div class="container">
+            <div class="row align-items-center justify-content-between">
+  
+              <div class="col-xl-6 col-lg-6 col-md-6">
+                <p class="mb-0">© 2024 Kavya Tours Design by <a href="https://wwww.zenrevo.com"> Zenrevo</a>.</p>
+              </div>
+  
+              <div class="col-xl-6 col-lg-6 col-md-6">
+                <ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+                  <li><a href="{% url 'terms' %}">Terms of services</a></li>
+                  <li class="ms-3"><a href="{% url 'privacy_policy' %}">Privacy Policies</a></li>
+                  <li class="ms-3"><a href="#">Refund Policies</a></li>
+                </ul>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- ============================ Footer End ================================== -->
+  
+      <!-- Log In Modal -->
+      <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+          <div class="modal-content" id="loginmodal">
+            <div class="modal-header">
+              <h4 class="modal-title fs-6">Sign In / Register</h4>
+              <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                  class="fa-solid fa-square-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+              <div class="modal-login-form py-4 px-md-3 px-0">
+                <form action="{% url 'login' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="form-floating mb-4">
+                    <input type="number" min=0 name="phone" class="form-control" placeholder="Phone number">
+                    <label>Phone Number</label>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <label>Password</label>
+                  </div>
+  
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary full-width font--bold btn-lg">Log In</button>
+                  </div>
+  
+                  <div class="modal-flex-item d-flex align-items-center justify-content-between mb-3">
+                    
+                    <div class="modal-flex-last">
+                      <a href="JavaScript:Void(0);" class="text-primary fw-medium">Forget Password?</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+  
+            
+  
+            </div>
+            <div class="modal-footer align-items-center justify-content-center">
+              <p>Don't have an account yet?<a href="{% url 'signup' %}" class="text-primary fw-medium ms-1">Sign Up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Modal -->
+  
+      
+  
+  
+      
+  
+      <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+  
+  
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+  
+  
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/dropzone.min.js"></script>
+    <script src="../static/js/flatpickr.js"></script>
+    <script src="../static/js/flickity.pkgd.min.js"></script>
+    <script src="../static/js/lightbox.min.js"></script>
+    <script src="../static/js/rangeslider.js"></script>
+    <script src="../static/js/select2.min.js"></script>
+    <script src="../static/js/counterup.min.js"></script>
+    <script src="../static/js/prism.js"></script>
+  
+    <script src="../static/js/addadult.js"></script>
+    <script src="../static/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+  
+  </body>
+  
+  
+  <!-- Mirrored from shreethemes.net/geotrip-live/geotrip/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 13:04:28 GMT -->
+  </html>

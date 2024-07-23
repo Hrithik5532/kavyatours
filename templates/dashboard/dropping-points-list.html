@@ -1,0 +1,172 @@
+{% extends "dashboard/template.html" %}
+
+{% block body %}
+<style>
+    .multi-select {
+        position: relative;
+    }
+    
+    .select-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    .select-box select {
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .select-box .over-select {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    #checkboxes {
+        display: none;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #f1f1f1;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+    
+    #checkboxes label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    #checkboxes input {
+        margin-right: 10px;
+    }
+</style>
+		<!-- ===========Innerpage-wrapper============= -->
+		<section>
+			<div class="content listing-content users-list">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+
+						<div class="col">
+							<div class="heading-messages">
+								<h3>All Dropping Points List</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+                        
+						<div class="col-md-7">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">All Routes Info </a>
+								</div>
+                                <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Routes, Boarding & Dropping</a>
+								</div>
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All Dropping Points List
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+                    
+					<div class="box">
+						<div class="row no-gutters">
+							<div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#" data-bs-toggle="modal" data-bs-target="#create-new">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div>
+							
+
+						</div><!-- end row -->
+						<div class="row no-gutters">
+							<div class="col-12 table-responsive">
+								<table id="example" class="table table-hover responsive listing">
+									<thead>
+										<tr>
+                                            <th>Name</th>
+                                    
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for i in dropping_points %}
+
+
+										<tr>
+											<td>{{i.name}}</td>
+										
+											<td>
+												<a href="{% url 'all-dropping-points' %}?id={{i.id}}&option=delete"><i class="fas fa-trash-alt"></i></a>
+											</td>
+										</tr>
+
+										{% endfor %}
+
+										
+
+									</tbody>
+								</table>
+							</div><!-- end column -->
+						</div><!-- end row -->
+					</div><!-- end box -->
+				</div><!-- end in-content-wrapper -->
+			</div><!-- end users-list -->
+		</section>
+		<!-- ===========End Innerpage-wrapper============= -->
+
+        <div class="modal fade" id="create-new" tabindex="-1" role="dialog" aria-labelledby="create-newmodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="create-newmodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Add New Dropping Point</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
+					<div class="hotel-listing-form">
+                        <form class="text-center" action="{% url 'all-dropping-points' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-md">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to" class="">Name:</label>
+                                                <input type="text" class="form-control" name="name" required id="to">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                   
+                                        
+                                    
+                                    </div><!-- end row -->
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            
+                                            <button type="submit" class="btn" type="submit">Create </button>
+                                        </li>
+                                       
+                                    </ul>
+                                </div><!-- End column -->
+                            
+                            </div><!-- end row -->
+
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+				</div> 
+
+			  </div>
+			</div>
+		</div>
+
+
+{% endblock body %}

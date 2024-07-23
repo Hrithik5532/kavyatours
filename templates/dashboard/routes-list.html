@@ -1,0 +1,264 @@
+{% extends "dashboard/template.html" %}
+{% block body %}
+
+<style>
+    .form-group select{
+        border: 1px solid #ccc;
+    }
+</style>
+
+		<!-- ===========Innerpage-wrapper============= -->
+		<section>
+			<div class="content listing-content users-list">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+
+						<div class="col">
+							<div class="heading-messages">
+								<h3>All Routes</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+						<div class="col-md-6">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">All Routes Info </a>
+								</div>
+                                <div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Routes, Boarding & Dropping</a>
+								</div>
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All Routes List
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+
+					<div class="box">
+						<div class="row no-gutters">
+							{% comment %} <div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div><!-- End column--> {% endcomment %}
+							
+
+						</div><!-- end row -->
+						<div class="row no-gutters">
+                            <div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#" data-bs-toggle="modal" data-bs-target="#create-new">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div>
+							<div class="col-12 table-responsive">
+								<table id="example" class="table table-hover responsive listing">
+									<thead>
+										<tr>
+											<th>id #</th>
+											<th>Name</th>
+											<th>Rote</th>
+											<th>Active Buses</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for i in routes %}
+
+										{% if not i.is_superuser %}
+
+										<tr>
+											<td>{{i.id}}</td>
+											<td>{{i.name}}</td>
+											<td>{% for j in i.route_dropping_point.all %}
+                                                - {{j.dropping_point.name}}
+                                            {% endfor %}</td>
+											<td>{{i.route_dropping_points.all.count}}</td>
+										
+											<td>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#edit"><i class="fas fa-edit"></i></a>
+												<a href="{% url 'all-routes' %}?id={{i.id}}&option=delete"><i class="fas fa-trash-alt"></i></a>
+											</td>
+										</tr>
+										{% endif %}
+
+										{% endfor %}
+
+										
+
+									</tbody>
+								</table>
+							</div><!-- end column -->
+						</div><!-- end row -->
+					</div><!-- end box -->
+				</div><!-- end in-content-wrapper -->
+			</div><!-- end users-list -->
+		</section>
+		<!-- ===========End Innerpage-wrapper============= -->
+
+
+        <div class="modal fade" id="create-new" tabindex="-1" role="dialog" aria-labelledby="create-newmodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="create-newmodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Create New Route</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
+					<div class="hotel-listing-form">
+                        <form class="text-center" action="{% url 'all-routes' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-md">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to3" class="">Name:</label>
+                                                <div id="select">
+                                                    <input type="text" class="form-control" name="name"> 
+                                                </div>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to3" class="">Dropping Point:</label>
+                                                <div id="select-container">
+                                                   
+                                                </div>
+                                                <button type="button" id="addnew">Add New <i class="fas fa-plus"></i></button>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    
+                                        <input type="hidden" name="dropping_points" id="hidden-dropping-points">
+                                    
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Confirm : </label>
+                                                <input type="checkbox" required id="to11">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    </div><!-- end row -->
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            
+                                            <button type="submit" class="btn" type="submit">Create </button>
+                                        </li>
+                                       
+                                    </ul>
+                                </div><!-- End column -->
+                            
+                            </div><!-- end row -->
+
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+				</div> 
+
+			  </div>
+			</div>
+		</div>
+
+       <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addNewButton = document.getElementById('addnew');
+            const selectContainer = document.getElementById('select-container');
+            const hiddenInput = document.getElementById('hidden-dropping-points');
+        
+            addNewButton.addEventListener('click', function() {
+                const allSelects = selectContainer.querySelectorAll('.dropping-point-select');
+                
+                // Check if there are any existing selects
+                if (allSelects.length > 0) {
+                    const lastSelect = allSelects[allSelects.length - 1];
+        
+                    // Check if the last select has a value selected
+                    if (lastSelect.value === '' || lastSelect.value === 'Select') {
+                        alert('Please select a value in the current dropdown before adding a new one.');
+                        return;
+                    }
+        
+                    // Check if all options have been selected
+                    const totalOptions = lastSelect.options.length - 1; // Subtract 1 for the default "Select" option
+                    const selectedOptions = Array.from(allSelects).filter(select => select.value !== '' && select.value !== 'Select').length;
+        
+                    if (selectedOptions >= totalOptions) {
+                        alert('All options have been selected. Cannot add more.');
+                        return;
+                    }
+                }
+        
+                const newSelect = document.createElement('select');
+                newSelect.className = 'form-control dropping-point-select';
+                newSelect.required = true;
+        
+                // Clone options from the first select or create initial options if no selects exist
+                if (allSelects.length > 0) {
+                    const firstSelect = allSelects[0];
+                    firstSelect.querySelectorAll('option').forEach(option => {
+                        const newOption = option.cloneNode(true);
+                        newSelect.appendChild(newOption);
+                    });
+                } else {
+                    // Add initial options if this is the first select
+                    newSelect.innerHTML = `
+                        <option disabled selected>Select</option>
+                        {% for i in dropping_points %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% endfor %}
+                    `;
+                }
+        
+                selectContainer.appendChild(newSelect);
+                updateSelectOptions();
+                updateHiddenInput();
+            });
+        
+            selectContainer.addEventListener('change', function(event) {
+                if (event.target.matches('.dropping-point-select')) {
+                    updateSelectOptions();
+                    updateHiddenInput();
+                }
+            });
+        
+            function updateSelectOptions() {
+                const allSelects = selectContainer.querySelectorAll('.dropping-point-select');
+                const selectedValues = new Set();
+        
+                allSelects.forEach((select, index) => {
+                    // Disable options that are selected in previous selects
+                    Array.from(select.options).forEach(option => {
+                        if (option.value !== '' && option.value !== 'Select') {
+                            option.disabled = selectedValues.has(option.value);
+                        }
+                    });
+        
+                    // Add this select's value to the set of selected values
+                    if (select.value !== '' && select.value !== 'Select') {
+                        selectedValues.add(select.value);
+                    }
+                });
+        
+                // Enable/disable the "Add New" button based on the last select's value
+                if (allSelects.length > 0) {
+                    const lastSelect = allSelects[allSelects.length - 1];
+                    addNewButton.disabled = (lastSelect.value === '' || lastSelect.value === 'Select');
+                } else {
+                    addNewButton.disabled = false;
+                }
+            }
+        
+            function updateHiddenInput() {
+                const selectedValues = Array.from(selectContainer.querySelectorAll('.dropping-point-select'))
+                    .map(select => select.value)
+                    .filter(value => value !== '' && value !== 'Select');
+                hiddenInput.value = selectedValues.join(',');
+            }
+        
+            // Initial call to set up the first select
+            updateSelectOptions();
+        });
+       </script>
+        
+        {% endblock body %}

@@ -4,30 +4,36 @@
 
 <!-- Mirrored from shreethemes.net/geotrip-live/geotrip/two-factor-auth.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 13:04:55 GMT -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GeoTrip - Tour & Travel Booking Agency HTML Template | ThemezHub</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-
-  <!-- All Plugins -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/animation.css" rel="stylesheet">
-  <link href="assets/css/dropzone.min.css" rel="stylesheet">
-  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
-  <link href="assets/css/flickity.min.css" rel="stylesheet">
-  <link href="assets/css/lightbox.min.css" rel="stylesheet">
-  <link href="assets/css/magnifypopup.css" rel="stylesheet">
-  <link href="assets/css/select2.min.css" rel="stylesheet">
-  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
-  <link href="assets/css/prism.css" rel="stylesheet">
-
-  <!-- Fontawesome & Bootstrap Icons CSS -->
-  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/fontawesome.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
-</head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kavya Booking | {{active}}</title>
+	<link rel="icon" type="image/x-icon" href="../static/img/logo.png">
+  
+  
+	<meta name="description" content="Book Your Journey. Travel Smart, Travel Safe With Kavya Travels.">
+	<meta property="og:title" content="Kavya Bus Booking | Tours and Travels" />
+	<meta property="og:image" content="http://test.trizyn.com/static/img/logo.png" />
+  
+  
+	<!-- All Plugins -->
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../static/css/animation.css" rel="stylesheet">
+	<link href="../static/css/dropzone.min.css" rel="stylesheet">
+	<link href="../static/css/flatpickr.min.css" rel="stylesheet">
+	<link href="../static/css/flickity.min.css" rel="stylesheet">
+	<link href="../static/css/lightbox.min.css" rel="stylesheet">
+	<link href="../static/css/magnifypopup.css" rel="stylesheet">
+	<link href="../static/css/select2.min.css" rel="stylesheet">
+	<link href="../static/css/rangeSlider.min.css" rel="stylesheet">
+	<link href="../static/css/prism.css" rel="stylesheet">
+  
+	<!-- Fontawesome & Bootstrap Icons CSS -->
+	<link href="../static/css/bootstrap-icons.css" rel="stylesheet">
+	<link href="../static/css/fontawesome.css" rel="stylesheet">
+  
+	<!-- Custom CSS -->
+	<link href="../static/css/style.css" rel="stylesheet">
+  </head>
 
 <body>
 	<!-- ============================================================== -->
@@ -36,7 +42,23 @@
 	<div id="preloader">
 		<div class="preloader"><span></span><span></span></div>
 	</div>
-
+	{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+        {% elif message.tags == 'warning' %}
+            <div class="alert alert-warning" role="alert">
+        {% elif message.tags == 'success' %}
+            <div class="alert alert-success" role="alert">
+        {% elif message.tags == 'info' %}
+            <div class="alert alert-info" role="alert">
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+        {% endif %}
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 	<!-- ============================================================== -->
 	<!-- Main wrapper - style you can find in pages.scss -->
 	<!-- ============================================================== -->
@@ -53,7 +75,7 @@
 								<!-- Vector Image -->
 								<div class="col-lg-6 d-flex align-items-center order-2 order-lg-1">
 									<div class="p-3 p-lg-5">
-										<img src="assets/img/auth.svg" class="img-fluid" alt="">
+										<img src="../static/img/auth.svg" class="img-fluid" alt="">
 									</div>
 									<!-- Divider -->
 									<div class="vr opacity-1 d-none d-lg-block"></div>
@@ -64,14 +86,15 @@
 									<div class="p-4 p-sm-7">
 										<!-- Logo -->
 										<a href="index.html">
-											<img class="img-fluid mb-4" src="assets/img/logo-icon.png" width="70" alt="logo">
+											<img class="img-fluid mb-4" src="../static/img/logo.png" width="70" alt="logo">
 										</a>
 										<!-- Title -->
 										<h1 class="mb-2 fs-2">Two-Factor Authentication</h1>
-										<p class="mb-0">We have to send a code to paythemezhub@gmail.com.</p>
+										<p class="mb-0">We have to send a OTP on {{phone}}.</p>
 
 										<!-- Form START -->
-										<form class="mt-4 text-start">
+										<form class="mt-4 text-start" action="{% url 'otpverify' %}" method="POST">
+											{% csrf_token %}
 											<div class="form py-4">
 												<div class="form-group">
 													<div class="row">
@@ -80,18 +103,8 @@
 														</div>
 													</div>
 													<div class="row g-4">
-														<div class="col">
-															<input type="text" class="form-control border br-dashed">
-														</div>
-														<div class="col">
-															<input type="text" class="form-control border br-dashed">
-														</div>
-														<div class="col">
-															<input type="text" class="form-control border br-dashed">
-														</div>
-														<div class="col">
-															<input type="text" class="form-control border br-dashed">
-														</div>
+														<input type="number" name="otp" min="0" max="9999" class="form-control border br-dashed" placeholder="Enter OTP 1234 for testing" required>
+														
 													</div>
 												</div>
 
@@ -100,20 +113,20 @@
 														<span class="text-md">Don't Get a Code?</span>
 													</div>
 													<div class="modal-flex-last">
-														<a href="JavaScript:Void(0);" class="text-primary fw-medium text-decoration-underline">Click
+														<a href="{% url 'otpverify' %}?resendotp=true" class="text-primary fw-medium text-decoration-underline">Click
 															to Resend</a>
 													</div>
 												</div>
 
 												<div class="form-group">
-													<button type="submit" class="btn btn-primary full-width font--bold btn-lg">Submit &
+													<button type="submit" class="btn btn-warning full-width font--bold btn-lg">Submit &
 														Verify</button>
 												</div>
 											</div>
 
 											<!-- Copyright -->
-											<div class="text-primary-hover text-center"> Copyrights ©2023 GeoTrip.com. Build by <a
-													href="https://www.themezhub.com/">Themezhub</a>. </div>
+											<div class="text-primary-hover text-center"> Copyrights ©2024 Kavyabooking.com. Build by <a
+													href="https://www.zenrevo.com/">zenrevo</a>. </div>
 										</form>
 										<!-- Form END -->
 									</div>

@@ -1,0 +1,1769 @@
+/* // ======================SideBar Media Queries Start==================== */
+
+@media (max-width: 991.9px) {
+  .top-bar nav.navbar {
+    margin: 0 0 0 0px;
+  }
+  .top-bar nav.navbar ul.nav-list li>a {
+    padding: 5px 3px;
+  }
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu {
+    font-size: 15px;
+    -webkit-transform: translateX(60px);
+    transform: translateX(60px);
+  }
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu a {
+    margin: 30px 0 0px 30px;
+  }
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu a i {
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+  }
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu a i.fa-sms {
+    padding: 8px 0px;
+  }
+  .top-bar nav.navbar ul.nav-list li.notifications>.dropdown-menu a i.fa-glass-martini {
+    padding: 10px 0px;
+  }
+  .top-bar nav.navbar ul.nav-list li.SideBar>.dropdown-menu {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+  .wrapper .sidebar-left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  .wrapper .sidebar-left .sidebar-topbar i:first-child {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  .wrapper .sidebar-left .sidebar-topbar>span {
+    display: none;
+  }
+  .wrapper .sidebar-left .side-menu ul.navbar-nav li.nav-item a.items-list span:first-child i {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .wrapper .sidebar-left .side-menu ul.navbar-nav li.nav-item a.items-list span.items-list-text {
+    display: none;
+  }
+  .wrapper .sidebar-left .side-menu ul.navbar-nav li.nav-item a.items-list span i.fa-chevron-down {
+    float: none;
+    margin: 4px 0 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .wrapper .sidebar-left .side-menu ul.navbar-nav li.nav-item .sub-menu a.items-list1 {
+    padding: 10px 0 10px 0px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .wrapper.active .sidebar-left {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  .wrapper.active .sidebar-left .sidebar-topbar i:first-child {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  .wrapper.active .sidebar-left .side-menu ul.navbar-nav li.nav-item a.items-list span:first-child i {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .wrapper.active .sidebar-left .side-menu ul.navbar-nav li.nav-item a.items-list span i.fa-chevron-down {
+    margin: 4px 0 0 0;
+  }
+  .wrapper.active .sidebar-left .side-menu ul.navbar-nav li.nav-item .sub-menu a.items-list1 {
+    text-align: center;
+  }
+  .content {
+    margin: 80px 20px 0 20px;
+  }
+  .top-bar nav.navbar button span.fa-bars {
+    color: #f7f7f7;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .wrapperactive table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .wrapper .content .message-details .btn-group1 {
+    margin: 40px 0px 20px 0px;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .wrapper .content .message-details .btn-group1 a {
+    padding: 5px 8px;
+    margin: 5px 2px;
+    font-size: 11px;
+  }
+  .wrapper .content .message-details .btn-group1 a i {
+    padding: 0 10px 0 0;
+  }
+  .wrapper .content .message-details .btn-group1 a:nth-child(3) i, .wrapper .content .message-details .btn-group1 a:nth-child(4) i {
+    padding: 0 0px 0 0;
+  }
+}
+
+/* // ======================Sidebar Media Queries Start==================== */
+
+/* // ======================Messages Media Queries Start==================== */
+
+@media (max-width: 1200px) {
+  .heading-messages h3 {
+    margin: 20px 0px 40px 10px;
+    font-size: 24px;
+  }
+  .breadcrumb {
+    padding: 10px 20px;
+    margin: 20px 10px;
+  }
+  .breadcrumb .breadcrumb-item {
+    font-size: 14px;
+  }
+  .content ul.nav.nav-pills {
+    margin: 15px 0 15px 0;
+  }
+  .content ul.nav.nav-pills li.nav-item {
+    margin: 0 5px;
+    padding: 5px 0;
+  }
+  .content ul.nav.nav-pills li.nav-item a.nav-link {
+    padding: 7px 13px;
+    font-size: 13px;
+  }
+  .content .inbox-header {
+    margin: 5px 2px;
+    text-align: center;
+  }
+  .content .inbox-header ul {
+    margin: 0;
+  }
+  .content .inbox-header .btn {
+    padding: 5px 20px;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+  .content .inbox-header .dropdown .dropdown-menu {
+    min-width: 100px;
+    padding: 0;
+    z-index: 1;
+  }
+  .content .inbox-header .dropdown .dropdown-menu a.dropdown-item {
+    font-size: 12px;
+  }
+  .content table {
+    margin: 20px;
+    max-width: 95%;
+    text-align: center;
+  }
+  .content table tr td {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .content table tr td:nth-child(1) input {
+    width: 10px;
+    vertical-align: middle;
+  }
+  .content table tr td:nth-child(2) i {
+    vertical-align: middle;
+  }
+  .content table tr td:nth-child(3) i {
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  .content .page-navigation {
+    margin: 30px 30px 30px 0;
+  }
+  .content .page-navigation a:nth-child(1) i.fas {
+    font-size: 15px;
+    padding: 5px 20px;
+  }
+  .content .page-navigation a:nth-child(2) i.fas {
+    font-size: 15px;
+    padding: 5px 20px;
+  }
+  .content .compose-messages .compose-messages-border {
+    padding: 0px 0px;
+    margin: 5px;
+  }
+  .content .compose-messages .compose-messages-border ul.nav.nav-pills {
+    margin: 10px 0 10px 0;
+  }
+  .content .compose-messages .compose-messages-border ul.nav.nav-pills li.nav-item {
+    margin: 0 5px;
+  }
+  .content .compose-messages .compose-messages-border ul {
+    padding: 10px 0 20px 0;
+    text-align: center;
+  }
+  .content .compose-messages .compose-messages-border ul li a.btn {
+    padding: 5px 15px;
+    font-size: 13px;
+  }
+  .content .compose-messages .compose-messages-border form {
+    position: relative;
+    margin: 20px 10px;
+  }
+  .content .compose-messages .compose-messages-border form .compose-options {
+    padding: 6px 20px;
+    font-size: 10px;
+  }
+  .content .compose-messages .compose-messages-border form .form-group>label {
+    width: 50px;
+    padding: 7px 5px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .content .compose-messages .compose-messages-border form .form-group .form-control {
+    padding: 0 0 0 53px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .content .compose-messages .compose-messages-border .custom-file input {
+    height: 10px;
+  }
+  .content .compose-messages .compose-messages-border .custom-file .custom-file-label, .content .compose-messages .compose-messages-border .custom-file .custom-file-label::after {
+    height: 30px;
+    font-size: 11px;
+  }
+  .content .compose-messages .compose-messages-border ul.footer-btns {
+    padding: 20px 0 20px 0;
+  }
+  .content .compose-messages .compose-messages-border ul.footer-btns li a.btn {
+    padding: 5px 15px;
+  }
+  .content .message-details ul.text-center {
+    margin: 10px 0;
+  }
+  .content .message-details ul.text-center>li {
+    margin: 7px 10px;
+  }
+  .content .message-details ul.text-center>li>a.btn {
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+  .content .message-details .message-details-text {
+    width: 98%;
+    margin: 0 auto 40px auto;
+  }
+  .content .message-details .message-details-text .md-heading {
+    padding: 20px 40px 20px 10px;
+  }
+  .content .message-details .message-details-text .md-heading h4 {
+    font-size: 20px;
+    margin: 0;
+  }
+  .content .message-details .message-details-text .message-details-body {
+    padding: 10px 10px;
+  }
+  .content .message-details .message-details-text .message-details-body .media img {
+    width: 50px;
+    vertical-align: middle;
+    margin: 15px 0;
+  }
+  .content .message-details .message-details-text .message-details-body .media .media-body h5 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .content .message-details .message-details-text .message-details-body .media .media-body p {
+    font-size: 15px;
+    padding: 0;
+  }
+  .content .message-details .message-details-text .message-details-body .text-right p {
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-body .text>p {
+    font-size: 15px;
+  }
+  .content .message-details .message-details-text .message-details-footer {
+    padding: 10px 10px;
+  }
+  .content .message-details .message-details-text .message-details-footer i {
+    font-size: 15px;
+  }
+  .content .message-details .message-details-text .message-details-footer>span {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .content .message-details .message-details-text .message-details-footer>a {
+    font-size: 15px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image {
+    padding: 0;
+    margin: 30px 10px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li img {
+    width: 40px;
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li span {
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li a {
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 {
+    margin: 0 10px 20px 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a {
+    padding: 5px 10px;
+    margin: 5px 2px;
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a i {
+    padding: 0 10px 0 0;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a:nth-child(3) i, .content .message-details .message-details-text .message-details-footer .btn-group1 a:nth-child(4) i {
+    padding: 0 0px 0 0;
+  }
+}
+
+@media (max-width: 991.9px) {
+  .content ul.nav.nav-pills li.nav-item a.nav-link {
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+  .content .inbox-header .btn {
+    padding: 4px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .heading-messages h3 {
+    margin: 10px 0px 30px 10px;
+    font-size: 24px;
+  }
+  .breadcrumb {
+    padding: 10px 20px;
+    margin: 0px 10px 20px 0;
+    max-width: 90%;
+  }
+  .breadcrumb .breadcrumb-item {
+    font-size: 14px;
+  }
+  .content ul.nav.nav-pills li.nav-item a.nav-link {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  .content .inbox-header .btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .content .page-navigation a:nth-child(1) i.fas {
+    font-size: 13px;
+    padding: 5px 15px;
+  }
+  .content .page-navigation a:nth-child(2) i.fas {
+    font-size: 13px;
+    padding: 5px 15px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .heading-messages h3 {
+    margin: 10px 0px 30px 10px;
+    font-size: 22px;
+  }
+  .breadcrumb {
+    padding: 10px 20px;
+    margin: 0px 10px 20px 10px;
+    max-width: 90%;
+  }
+  .breadcrumb .breadcrumb-item {
+    font-size: 13px;
+  }
+  .content ul.nav.nav-pills {
+    margin: 15px 0 5px 0;
+  }
+  .content ul.nav.nav-pills li.nav-item a.nav-link {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .content .inbox-header .btn {
+    margin: 10px 0 0 0;
+  }
+  .content .inbox-header .dropdown .dropdown-menu a.dropdown-item {
+    font-size: 11px;
+  }
+  .content table tr td {
+    padding: 5px;
+    font-size: 11px;
+  }
+  .content table tr td:nth-child(3) i {
+    font-size: 11px;
+  }
+  .content .page-navigation {
+    margin: 30px 30px 30px 0;
+  }
+  .content .page-navigation a:nth-child(1) i.fas {
+    font-size: 13px;
+    padding: 5px 15px;
+  }
+  .content .page-navigation a:nth-child(2) i.fas {
+    font-size: 13px;
+    padding: 5px 15px;
+  }
+  .content .compose-messages .compose-messages-border ul {
+    padding: 0 0 10px 0;
+  }
+  .content .compose-messages .compose-messages-border ul li a.btn {
+    font-size: 11px;
+  }
+  .content .compose-messages .compose-messages-border form .compose-options {
+    font-size: 11px;
+  }
+  .content .compose-messages .compose-messages-border form .form-group>label {
+    font-size: 10px;
+  }
+  .content .compose-messages .compose-messages-border form .form-group .form-control {
+    font-size: 10px;
+  }
+  .content .compose-messages .compose-messages-border ul.footer-btns li a.btn {
+    padding: 5px 15px;
+  }
+  .content .message-details ul.text-center {
+    margin: 10px 0;
+  }
+  .content .message-details ul.text-center>li {
+    margin: 0px 10px;
+  }
+  .content .message-details ul.text-center>li>a.btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text {
+    width: 98%;
+    margin: 20px auto 40px auto;
+  }
+  .content .message-details .message-details-text .md-heading {
+    padding: 20px 40px 20px 10px;
+  }
+  .content .message-details .message-details-text .md-heading h4 {
+    font-size: 16px;
+  }
+  .content .message-details .message-details-text .message-details-body {
+    padding: 10px 10px;
+  }
+  .content .message-details .message-details-text .message-details-body .media img {
+    width: 40px;
+  }
+  .content .message-details .message-details-text .message-details-body .media .media-body h5 {
+    font-size: 15px;
+  }
+  .content .message-details .message-details-text .message-details-body .media .media-body p {
+    font-size: 12px;
+  }
+  .content .message-details .message-details-text .message-details-body .text-right p {
+    font-size: 13px;
+  }
+  .content .message-details .message-details-text .message-details-body .text>p {
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-footer i {
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer>span {
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer>a {
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image {
+    padding: 0;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li img {
+    width: 40px;
+    font-size: 14px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li span {
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer ul.attachment-image li a {
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a {
+    padding: 5px 10px;
+    margin: 5px 2px;
+    font-size: 11px;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a i {
+    padding: 0 10px 0 0;
+  }
+  .content .message-details .message-details-text .message-details-footer .btn-group1 a:nth-child(3) i, .content .message-details .message-details-text .message-details-footer .btn-group1 a:nth-child(4) i {
+    padding: 0 0px 0 0;
+  }
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* // ======================Messages Media Queries End==================== */
+
+/* *********************Add New Button Media Queries Start here*********************** */
+
+@media (max-width: 991.9px) {
+  .box .add-new {
+    margin: 20px 0 10px 20px;
+  }
+  .box .add-new a {
+    padding: 5px 15px;
+    font-size: 11px;
+  }
+  .box .add-new a i {
+    font-size: 9px;
+  }
+  .box .tools-btns {
+    margin: 20px 20px 10px 0px;
+  }
+  .box .tools-btns a i {
+    padding: 6px 15px;
+    background-color: #3333ff;
+    color: #f0f0f0;
+    border-radius: 20px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .box .add-new a {
+    padding: 5px 12px;
+    font-size: 10px;
+  }
+  .box .add-new a i {
+    font-size: 8px;
+  }
+  .box .tools-btns a i {
+    padding: 7px 15px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .box .add-new {
+    margin: 20px 0 10px 5px;
+  }
+  .box .add-new a i {
+    font-size: 9px;
+  }
+  .box .tools-btns {
+    margin: 20px 5px 10px 0px;
+  }
+  .box .tools-btns a i {
+    padding: 7px 10px;
+  }
+}
+
+/* *********************Add New Button Media Queries End here*********************** */
+
+/* ****************************Bookings Media Queries Start here*************************** */
+
+@media (max-width: 1300px) {
+  .bookings-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+  }
+}
+
+@media (max-width: 991.9px) {
+  .content.booking-content table thead tr th {
+    font-size: 13px;
+    padding: 10px 5px;
+    line-height: 1;
+  }
+  .content.booking-content table thead tr th:nth-child(1) {
+    padding: 15px 20px;
+  }
+  .content.booking-content table tr td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .content.booking-content table tr td:nth-child(1) img {
+    min-width: 20px;
+    max-width: 20px;
+  }
+  .content.booking-content table tr td:nth-child(8) a {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  .content.booking-content table tr td:nth-child(9) a {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  .content.booking-content table tr td:nth-child(10) a i.fa-trash-alt, .content.booking-content table tr td:nth-child(10) a i.fa-edit {
+    padding: 5px;
+    font-size: 8px;
+    margin: 1px 0;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .content.booking-content .box table thead tr th {
+    font-size: 11px;
+  }
+  .content.booking-content .box table tr td {
+    padding: 10px 3px;
+    font-size: 11px;
+  }
+  .content.booking-content .box table tr td:nth-child(8) a, .content.booking-content .box table tr td:nth-child(9) a {
+    padding: 3px 8px;
+    font-size: 9px;
+  }
+  .content.booking-content .box table tr td:nth-child(10) a i.fa-trash-alt, .content.booking-content .box table tr td:nth-child(10) a i.fa-edit {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .content.booking-content {
+    margin: 80px 0 0 0;
+  }
+  .content.booking-content .box table tr td:nth-child(8) a, .content.booking-content .box table tr td:nth-child(9) a {
+    font-size: 8px;
+  }
+}
+
+/* *******************************Bookings Media Queries End here**************************** */
+
+/* ****************************Listing Media Queries Start here************************** */
+
+@media (max-width: 991.9px) {
+  .content.flight-listing-content table thead tr th, .content.car-listing-content table thead tr th, .content.cruise-listing-content table thead tr th, .content.tour-listing-content table thead tr th, .content.listing-content table thead tr th {
+    font-size: 14px;
+  }
+  .content.flight-listing-content table tr td, .content.car-listing-content table tr td, .content.cruise-listing-content table tr td, .content.tour-listing-content table tr td, .content.listing-content table tr td {
+    font-size: 14px;
+    padding: 5px 20px;
+  }
+  .content.flight-listing-content table tr td:nth-child(1) img, .content.car-listing-content table tr td:nth-child(1) img, .content.cruise-listing-content table tr td:nth-child(1) img, .content.tour-listing-content table tr td:nth-child(1) img, .content.listing-content table tr td:nth-child(1) img {
+    min-width: 20px;
+    max-width: 20px;
+  }
+  .content.flight-listing-content table tr td:nth-child(7) a, .content.car-listing-content table tr td:nth-child(7) a, .content.cruise-listing-content table tr td:nth-child(7) a, .content.tour-listing-content table tr td:nth-child(7) a, .content.listing-content table tr td:nth-child(7) a {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  .content.flight-listing-content table tr td:nth-child(10) a i.fa-trash-alt, .content.flight-listing-content table tr td:nth-child(10) a i.fa-edit, .content.car-listing-content table tr td:nth-child(10) a i.fa-trash-alt, .content.car-listing-content table tr td:nth-child(10) a i.fa-edit, .content.cruise-listing-content table tr td:nth-child(10) a i.fa-trash-alt, .content.cruise-listing-content table tr td:nth-child(10) a i.fa-edit, .content.tour-listing-content table tr td:nth-child(10) a i.fa-trash-alt, .content.tour-listing-content table tr td:nth-child(10) a i.fa-edit, .content.listing-content table tr td:nth-child(10) a i.fa-trash-alt, .content.listing-content table tr td:nth-child(10) a i.fa-edit {
+    padding: 5px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .content.flight-listing-content table thead tr th, .content.car-listing-content table thead tr th, .content.cruise-listing-content table thead tr th, .content.tour-listing-content table thead tr th, .content.listing-content table thead tr th {
+    line-height: 1.2;
+    font-size: 13px;
+  }
+  .content.flight-listing-content table tr td, .content.car-listing-content table tr td, .content.cruise-listing-content table tr td, .content.tour-listing-content table tr td, .content.listing-content table tr td {
+    padding: 5px 5px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .content.flight-listing-content table thead tr th, .content.car-listing-content table thead tr th, .content.cruise-listing-content table thead tr th, .content.tour-listing-content table thead tr th, .content.listing-content table thead tr th {
+    line-height: 1.2;
+    font-size: 11px;
+  }
+  .content.flight-listing-content table tr td, .content.car-listing-content table tr td, .content.cruise-listing-content table tr td, .content.tour-listing-content table tr td, .content.listing-content table tr td {
+    padding: 5px 5px;
+    font-size: 11px;
+  }
+  .content.flight-listing-content table tr td:nth-child(7) a, .content.car-listing-content table tr td:nth-child(7) a, .content.cruise-listing-content table tr td:nth-child(7) a, .content.tour-listing-content table tr td:nth-child(7) a, .content.listing-content table tr td:nth-child(7) a {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
+/* ****************************Listing Media Queries End here************************** */
+
+/* ***********************Hotel Listing Add Details Media Queries End here********************** */
+
+@media (max-width: 1200px) {
+  .details-text h4 {
+    font-size: 20px;
+    margin: 0px 20px;
+    padding: 20px 0;
+  }
+  .flight-listing-form .form-row, .car-listing-form .form-row, .cruise-listing-form .form-row, .tour-listing-form .form-row, .hotel-listing-form .form-row {
+    padding: 0;
+  }
+  .flight-listing-form .form-row .col-md, .car-listing-form .form-row .col-md, .cruise-listing-form .form-row .col-md, .tour-listing-form .form-row .col-md, .hotel-listing-form .form-row .col-md {
+    padding: 0;
+  }
+  .flight-listing-form .form-row .col-md select option, .car-listing-form .form-row .col-md select option, .cruise-listing-form .form-row .col-md select option, .tour-listing-form .form-row .col-md select option, .hotel-listing-form .form-row .col-md select option {
+    padding: 0px;
+  }
+  .flight-listing-form .form-row .col-md:nth-child(1), .car-listing-form .form-row .col-md:nth-child(1), .cruise-listing-form .form-row .col-md:nth-child(1), .tour-listing-form .form-row .col-md:nth-child(1), .hotel-listing-form .form-row .col-md:nth-child(1) {
+    padding: 0 10px 0 0;
+  }
+  .flight-listing-form form, .car-listing-form form, .cruise-listing-form form, .tour-listing-form form, .hotel-listing-form form {
+    max-width: 95%;
+  }
+  .flight-listing-form form .form-group, .car-listing-form form .form-group, .cruise-listing-form form .form-group, .tour-listing-form form .form-group, .hotel-listing-form form .form-group {
+    margin-bottom: 40px;
+  }
+  .flight-listing-form form .form-group>label, .car-listing-form form .form-group>label, .cruise-listing-form form .form-group>label, .tour-listing-form form .form-group>label, .hotel-listing-form form .form-group>label {
+    font-size: 13px;
+    width: 140px;
+    padding: 9px 10px;
+  }
+  .flight-listing-form form .form-group .form-control, .car-listing-form form .form-group .form-control, .cruise-listing-form form .form-group .form-control, .tour-listing-form form .form-group .form-control, .hotel-listing-form form .form-group .form-control {
+    padding: 0 0 0 150px;
+  }
+  .flight-listing-form form .form-group input, .flight-listing-form form .form-group .custom-select, .car-listing-form form .form-group input, .car-listing-form form .form-group .custom-select, .cruise-listing-form form .form-group input, .cruise-listing-form form .form-group .custom-select, .tour-listing-form form .form-group input, .tour-listing-form form .form-group .custom-select, .hotel-listing-form form .form-group input, .hotel-listing-form form .form-group .custom-select {
+    font-size: 13px;
+  }
+  .flight-listing-form form .input-group-text, .car-listing-form form .input-group-text, .cruise-listing-form form .input-group-text, .tour-listing-form form .input-group-text, .hotel-listing-form form .input-group-text {
+    font-size: 13px;
+    width: 140px;
+  }
+  .flight-listing-form form i.fa-angle-down, .car-listing-form form i.fa-angle-down, .cruise-listing-form form i.fa-angle-down, .tour-listing-form form i.fa-angle-down, .hotel-listing-form form i.fa-angle-down {
+    right: 15px;
+  }
+  .flight-listing-form form ul li:nth-child(1) button, .flight-listing-form form ul li:nth-child(2) button, .car-listing-form form ul li:nth-child(1) button, .car-listing-form form ul li:nth-child(2) button, .cruise-listing-form form ul li:nth-child(1) button, .cruise-listing-form form ul li:nth-child(2) button, .tour-listing-form form ul li:nth-child(1) button, .tour-listing-form form ul li:nth-child(2) button, .hotel-listing-form form ul li:nth-child(1) button, .hotel-listing-form form ul li:nth-child(2) button {
+    padding: 5px 20px;
+  }
+  .flight-listing-form form textarea, .car-listing-form form textarea, .cruise-listing-form form textarea, .tour-listing-form form textarea, .hotel-listing-form form textarea {
+    font-size: 15px;
+  }
+  .flight-listing-form .dropzone, .car-listing-form .dropzone, .cruise-listing-form .dropzone, .tour-listing-form .dropzone, .hotel-listing-form .dropzone {
+    text-align: center;
+    border: 2px dashed #999999;
+    margin-bottom: 40px;
+  }
+  .flight-listing-form .dropzone .fa-cloud-upload-alt, .car-listing-form .dropzone .fa-cloud-upload-alt, .cruise-listing-form .dropzone .fa-cloud-upload-alt, .tour-listing-form .dropzone .fa-cloud-upload-alt, .hotel-listing-form .dropzone .fa-cloud-upload-alt {
+    font-size: 50px;
+    margin: 0px 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .flight-listing-form .dropzone .dz-message, .car-listing-form .dropzone .dz-message, .cruise-listing-form .dropzone .dz-message, .tour-listing-form .dropzone .dz-message, .hotel-listing-form .dropzone .dz-message {
+    font-size: 15px;
+    color: #1a1a1a;
+  }
+  .flight-listing-form .dropzone .dz-message p, .car-listing-form .dropzone .dz-message p, .cruise-listing-form .dropzone .dz-message p, .tour-listing-form .dropzone .dz-message p, .hotel-listing-form .dropzone .dz-message p {
+    font-size: 20px;
+    margin: 0px 0 10px 0;
+  }
+}
+
+@media (max-width: 991.9px) {
+  .details-text h4 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .flight-listing-form .form-row, .car-listing-form .form-row, .cruise-listing-form .form-row, .tour-listing-form .form-row, .hotel-listing-form .form-row {
+    padding: 0;
+  }
+  .flight-listing-form .form-row .col-md, .car-listing-form .form-row .col-md, .cruise-listing-form .form-row .col-md, .tour-listing-form .form-row .col-md, .hotel-listing-form .form-row .col-md {
+    padding: 0;
+  }
+  .flight-listing-form .form-row .col-md select option, .car-listing-form .form-row .col-md select option, .cruise-listing-form .form-row .col-md select option, .tour-listing-form .form-row .col-md select option, .hotel-listing-form .form-row .col-md select option {
+    padding: 0px;
+  }
+  .flight-listing-form .form-row .col-md:nth-child(1), .car-listing-form .form-row .col-md:nth-child(1), .cruise-listing-form .form-row .col-md:nth-child(1), .tour-listing-form .form-row .col-md:nth-child(1), .hotel-listing-form .form-row .col-md:nth-child(1) {
+    padding: 0 0px 0 0;
+  }
+  .flight-listing-form form, .car-listing-form form, .cruise-listing-form form, .tour-listing-form form, .hotel-listing-form form {
+    max-width: 90%;
+  }
+  .flight-listing-form form textarea, .car-listing-form form textarea, .cruise-listing-form form textarea, .tour-listing-form form textarea, .hotel-listing-form form textarea {
+    font-size: 13px;
+  }
+  .flight-listing-form form ul li:nth-child(1) button, .flight-listing-form form ul li:nth-child(2) button, .car-listing-form form ul li:nth-child(1) button, .car-listing-form form ul li:nth-child(2) button, .cruise-listing-form form ul li:nth-child(1) button, .cruise-listing-form form ul li:nth-child(2) button, .tour-listing-form form ul li:nth-child(1) button, .tour-listing-form form ul li:nth-child(2) button, .hotel-listing-form form ul li:nth-child(1) button, .hotel-listing-form form ul li:nth-child(2) button {
+    padding: 5px 20px;
+    font-size: 11px;
+  }
+  .flight-listing-form .dropzone .fa-cloud-upload-alt, .car-listing-form .dropzone .fa-cloud-upload-alt, .cruise-listing-form .dropzone .fa-cloud-upload-alt, .tour-listing-form .dropzone .fa-cloud-upload-alt, .hotel-listing-form .dropzone .fa-cloud-upload-alt {
+    font-size: 45px;
+  }
+  .flight-listing-form .dropzone .dz-message, .car-listing-form .dropzone .dz-message, .cruise-listing-form .dropzone .dz-message, .tour-listing-form .dropzone .dz-message, .hotel-listing-form .dropzone .dz-message {
+    font-size: 14px;
+    color: #1a1a1a;
+  }
+  .flight-listing-form .dropzone .dz-message p, .car-listing-form .dropzone .dz-message p, .cruise-listing-form .dropzone .dz-message p, .tour-listing-form .dropzone .dz-message p, .hotel-listing-form .dropzone .dz-message p {
+    font-size: 19px;
+    margin: 0px 0 10px 0;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .flight-listing-form form .form-group, .car-listing-form form .form-group, .cruise-listing-form form .form-group, .tour-listing-form form .form-group, .hotel-listing-form form .form-group {
+    margin-bottom: 20px;
+  }
+  .flight-listing-form form .form-group>label, .car-listing-form form .form-group>label, .cruise-listing-form form .form-group>label, .tour-listing-form form .form-group>label, .hotel-listing-form form .form-group>label {
+    font-size: 11px;
+    width: 115px;
+    height: 30px;
+    padding: 9px 10px;
+  }
+  .flight-listing-form form .form-group .form-control, .car-listing-form form .form-group .form-control, .cruise-listing-form form .form-group .form-control, .tour-listing-form form .form-group .form-control, .hotel-listing-form form .form-group .form-control {
+    padding: 0 0 0 120px;
+    height: 30px;
+  }
+  .flight-listing-form form .form-group input, .flight-listing-form form .form-group .custom-select, .car-listing-form form .form-group input, .car-listing-form form .form-group .custom-select, .cruise-listing-form form .form-group input, .cruise-listing-form form .form-group .custom-select, .tour-listing-form form .form-group input, .tour-listing-form form .form-group .custom-select, .hotel-listing-form form .form-group input, .hotel-listing-form form .form-group .custom-select {
+    font-size: 11px;
+    height: 30px;
+  }
+  .flight-listing-form form .input-group-text, .car-listing-form form .input-group-text, .cruise-listing-form form .input-group-text, .tour-listing-form form .input-group-text, .hotel-listing-form form .input-group-text {
+    font-size: 11px;
+    width: 115px;
+    height: 30px;
+  }
+  .flight-listing-form .textarea, .car-listing-form .textarea, .cruise-listing-form .textarea, .tour-listing-form .textarea, .hotel-listing-form .textarea {
+    font-size: 11px;
+  }
+  .flight-listing-form ul li:nth-child(1) button, .flight-listing-form ul li:nth-child(2) button, .car-listing-form ul li:nth-child(1) button, .car-listing-form ul li:nth-child(2) button, .cruise-listing-form ul li:nth-child(1) button, .cruise-listing-form ul li:nth-child(2) button, .tour-listing-form ul li:nth-child(1) button, .tour-listing-form ul li:nth-child(2) button, .hotel-listing-form ul li:nth-child(1) button, .hotel-listing-form ul li:nth-child(2) button {
+    margin: 20px 0 0 0;
+    font-size: 10px;
+  }
+  .flight-listing-form .dropzone, .car-listing-form .dropzone, .cruise-listing-form .dropzone, .tour-listing-form .dropzone, .hotel-listing-form .dropzone {
+    margin-bottom: 20px;
+  }
+  .flight-listing-form .dropzone .fa-cloud-upload-alt, .car-listing-form .dropzone .fa-cloud-upload-alt, .cruise-listing-form .dropzone .fa-cloud-upload-alt, .tour-listing-form .dropzone .fa-cloud-upload-alt, .hotel-listing-form .dropzone .fa-cloud-upload-alt {
+    font-size: 35px;
+  }
+  .flight-listing-form .dropzone .dz-message, .car-listing-form .dropzone .dz-message, .cruise-listing-form .dropzone .dz-message, .tour-listing-form .dropzone .dz-message, .hotel-listing-form .dropzone .dz-message {
+    font-size: 12px;
+  }
+  .flight-listing-form .dropzone .dz-message p, .car-listing-form .dropzone .dz-message p, .cruise-listing-form .dropzone .dz-message p, .tour-listing-form .dropzone .dz-message p, .hotel-listing-form .dropzone .dz-message p {
+    font-size: 15px;
+  }
+}
+
+/* ***********************Hotel Listing Add Details Media Queries End here********************* */
+
+/* ****************************Tour Listing Media Queries Start here***************************/
+
+@media (max-width: 991.9px) {
+  .content.tour-listing-content table tr td {
+    padding: 5px 30px;
+  }
+  .content.tour-listing-content table tr td:nth-child(1) img {
+    min-width: 20px;
+    max-width: 20px;
+  }
+  .content.tour-listing-content table tr td:nth-child(8) a i.fa-trash-alt, .content.tour-listing-content table tr td:nth-child(8) a i.fa-edit {
+    padding: 5px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .content.tour-listing-content table thead tr th {
+    line-height: 1.2;
+    font-size: 13px;
+  }
+  .content.tour-listing-content table tr td {
+    padding: 5px 5px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .content.tour-listing-content table thead tr th {
+    line-height: 1.2;
+    font-size: 11px;
+  }
+  .content.tour-listing-content table tr td {
+    padding: 5px 5px;
+    font-size: 11px;
+  }
+  .content.tour-listing-content table tr td:nth-child(7) a {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
+/* ******************************Tour Listing Media Queries End here*************************** */
+
+/* **************************Cruise,car,flight Listing Media Queries Start here*********************** */
+
+@media (max-width: 991.9px) {
+  .content.flight-listing-content table thead tr th, .content.car-listing-content table thead tr th, .content.cruise-listing-content table thead tr th {
+    font-size: 14px;
+  }
+  .content.flight-listing-content table tr td, .content.car-listing-content table tr td, .content.cruise-listing-content table tr td {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
+  .content.flight-listing-content table tr td:nth-child(9) a, .content.car-listing-content table tr td:nth-child(9) a, .content.cruise-listing-content table tr td:nth-child(9) a {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .content.flight-listing-content table thead tr th, .content.car-listing-content table thead tr th, .content.cruise-listing-content table thead tr th {
+    line-height: 1.2;
+    font-size: 11px;
+  }
+  .content.flight-listing-content table tr td, .content.car-listing-content table tr td, .content.cruise-listing-content table tr td {
+    padding: 5px 5px;
+    font-size: 11px;
+  }
+  .content.flight-listing-content table tr td:nth-child(9) a, .content.car-listing-content table tr td:nth-child(9) a, .content.cruise-listing-content table tr td:nth-child(9) a {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
+/* ****************************Cruise,car,flight Listing Media Queries End here************************ */
+
+/* ****************************Profile Media Queries Start Here************************** */
+
+@media (max-width: 1200px) {
+  .content.profile .hotel-listing-form .form-group label {
+    width: 100px;
+    font-size: 13px;
+    height: 30px;
+    padding: 4px 0;
+  }
+  .content.profile .hotel-listing-form .form-group .form-control {
+    padding: 0 0 0 105px;
+    height: 30px;
+  }
+  .content.profile .hotel-listing-form .form-group .textarea {
+    font-size: 14px;
+  }
+  .content.profile .upload-photo-wrapper .upload-heading h5 {
+    font-size: 18px;
+  }
+  .content.profile .upload-photo-wrapper .dropzone .dz-message p {
+    font-size: 16px;
+  }
+  .content.view-profile .heading-part {
+    padding: 0 0px 30px 0;
+  }
+  .content.view-profile .heading-part p {
+    font-size: 15px;
+  }
+  .content.view-profile .details-part {
+    padding: 0 0px 30px 0;
+  }
+  .content.view-profile .details-part p {
+    font-size: 15px;
+  }
+  .content.view-profile .personal-info h6 {
+    font-size: 15px;
+  }
+  .content.view-profile .personal-info p {
+    padding: 0 0 0 40px;
+    font-size: 14px;
+  }
+  .content.view-profile .upload-photo-wrapper .upload-heading h5 {
+    font-size: 16px;
+  }
+  .content.view-profile .upload-photo-wrapper .dropzone {
+    padding: 0;
+  }
+  .content.view-profile .upload-photo-wrapper .dropzone .dz-message {
+    margin: 0;
+    padding: 14px 0;
+  }
+  .content.view-profile .upload-photo-wrapper .dropzone .dz-message h1 {
+    font-size: 90px;
+    margin: 0;
+  }
+  .content.change-password .profile-padding {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .content.view-profile .heading-part p {
+    font-size: 14px;
+  }
+  .content.view-profile .details-part p {
+    font-size: 14px;
+  }
+  .content.view-profile .personal-info h6 {
+    font-size: 14px;
+  }
+  .content.view-profile .personal-info p {
+    font-size: 13px;
+  }
+  .content.view-profile .upload-photo-wrapper .upload-heading h5 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .content.profile .hotel-listing-form .form-group label {
+    width: 100px;
+    font-size: 13px;
+    height: 30px;
+    padding: 4px 0;
+  }
+  .content.profile .hotel-listing-form .form-group .form-control {
+    padding: 0 0 0 105px;
+    height: 30px;
+  }
+  .content.profile .hotel-listing-form .form-group .textarea {
+    font-size: 14px;
+  }
+  .content.profile .upload-photo-wrapper {
+    padding: 20px 0 0 0;
+  }
+  .content.profile .upload-photo-wrapper .upload-heading h5 {
+    font-size: 18px;
+  }
+  .content.profile .upload-photo-wrapper .dropzone .dz-message p {
+    font-size: 16px;
+  }
+  .content.view-profile .box {
+    padding: 30px 10px;
+  }
+  .content.view-profile .heading-part p {
+    padding-left: 5px;
+    font-size: 13px;
+  }
+  .content.view-profile .details-part p {
+    font-size: 13px;
+  }
+  .content.view-profile .personal-info h6 {
+    padding-left: 5px;
+    font-size: 14px;
+  }
+  .content.view-profile .personal-info p {
+    padding: 0 0 0 15px;
+    font-size: 13px;
+  }
+  .content.view-profile .upload-photo-wrapper .upload-heading h5 {
+    font-size: 15px;
+  }
+  .content.change-password .profile-padding {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ****************************Profile Media Queries End Here************************** */
+
+/* ****************************Users Media Queries End Here************************** */
+
+@media (max-width: 991.9px) {
+  .users-list table tr td:nth-child(8) a {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+  .users-list table tr td:nth-child(9) a i.fa-trash-alt, .users-list table tr td:nth-child(9) a i.fa-edit {
+    padding: 5px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .users-list table tr td:nth-child(8) a {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  .users-list table tr td:nth-child(9) a i.fa-trash-alt, .users-list table tr td:nth-child(9) a i.fa-edit {
+    padding: 5px;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 576px) {
+  .users-list table tr td:nth-child(8) a {
+    font-size: 8px;
+    padding: 3px 8px;
+  }
+  .users-list table tr td:nth-child(9) a i.fa-trash-alt, .users-list table tr td:nth-child(9) a i.fa-edit {
+    padding: 5px;
+    font-size: 8px;
+  }
+}
+
+/* ****************************Users Media Queries End Here************************** */
+
+/* ****************************Reviews Media Queries Start Here************************** */
+
+@media (max-width: 1200px) {
+  .reviews-body ul {
+    padding: 0 30px;
+  }
+  .reviews-body ul li {
+    list-style-type: none;
+  }
+  .reviews-body .media {
+    margin: 50px 0;
+  }
+  .reviews-body .media img {
+    max-width: 70px;
+  }
+  .reviews-body .media .media-body h5 {
+    margin: 10px 0 10px 0;
+    font-size: 19px;
+  }
+  .reviews-body .media .media-body h5 small {
+    font-weight: 600;
+    font-size: 13px;
+    font-style: italic;
+  }
+  .reviews-body .media .media-body p {
+    margin: 0;
+    font-size: 14px;
+    text-align: justify;
+    font-weight: 600;
+    color: #4d4d4d;
+    padding-left: 10px;
+  }
+  .reviews-body .media .media-body i {
+    font-size: 13px;
+    margin: 0px 0 20px 3px;
+  }
+  .reviews-body .media .media-body i {
+    color: #ffa500;
+  }
+  .reviews-body .media .media-body p.text-sm-right, .reviews-body .media .media-body span {
+    font-style: italic;
+    font-weight: 600;
+    color: #666666;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-body ul {
+    padding: 0 30px;
+  }
+  .reviews-body ul li {
+    list-style-type: none;
+  }
+  .reviews-body .media {
+    margin: 50px 0;
+  }
+  .reviews-body .media img {
+    max-width: 60px;
+  }
+  .reviews-body .media .media-body h5 {
+    margin: 10px 0 10px 0;
+    font-size: 18px;
+  }
+  .reviews-body .media .media-body h5 small {
+    font-weight: 600;
+    font-size: 12px;
+    font-style: italic;
+  }
+  .reviews-body .media .media-body p {
+    margin: 0;
+    font-size: 13px;
+    text-align: justify;
+    font-weight: 600;
+    color: #4d4d4d;
+    padding-left: 10px;
+  }
+  .reviews-body .media .media-body i {
+    font-size: 12px;
+    margin: 0px 0 20px 3px;
+  }
+  .reviews-body .media .media-body i {
+    color: #ffa500;
+  }
+  .reviews-body .media .media-body p.text-sm-right, .reviews-body .media .media-body span {
+    font-style: italic;
+    font-weight: 600;
+    color: #666666;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reviews-body ul {
+    padding: 0 10px;
+  }
+  .reviews-body ul li {
+    list-style-type: none;
+  }
+  .reviews-body .media {
+    margin: 50px 0;
+  }
+  .reviews-body .media img {
+    max-width: 60px;
+  }
+  .reviews-body .media .media-body h5 {
+    margin: 10px 0 10px 0;
+    font-size: 17px;
+  }
+  .reviews-body .media .media-body h5 small {
+    font-weight: 600;
+    font-size: 11px;
+    font-style: italic;
+  }
+  .reviews-body .media .media-body p {
+    margin: 0;
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 600;
+    color: #4d4d4d;
+    padding-left: 10px;
+  }
+  .reviews-body .media .media-body i {
+    font-size: 11px;
+    margin: 0px 0 20px 3px;
+  }
+  .reviews-body .media .media-body i {
+    color: #ffa500;
+  }
+  .reviews-body .media .media-body p.text-sm-right, .reviews-body .media .media-body span {
+    font-style: italic;
+    font-weight: 600;
+    color: #666666;
+    font-size: 13px;
+    float: none;
+  }
+}
+
+/* ****************************Reviews Media Queries End Here************************** */
+
+/* ****************************Dashboard Media Queries Start Here************************** */
+
+@media (max-width: 1200px) {
+  .dashbaord .box .row:nth-child(1) .col-md-6, .dashbaord .box .row:nth-child(1) .col-xl, .dashbaord .box .row:nth-child(1) .col {
+    padding: 10px 15px;
+  }
+  .dashbaord .box .dashboard-boxes .icon {
+    min-height: 80px;
+  }
+  .dashbaord .box .dashboard-boxes .icon i {
+    font-size: 31px;
+  }
+  .dashbaord .box .dashboard-boxes a h5 {
+    min-height: 80px;
+    font-size: 20px;
+  }
+  .dashbaord .box .dashboard-boxes1 .icon i {
+    font-size: 33px;
+    padding: 16px;
+    height: 70px;
+    width: 70px;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 {
+    font-size: 28px;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 small {
+    font-size: 15px;
+  }
+  .dashbaord .box .charts-section canvas {
+    max-height: 500px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 786px) {
+  .dashbaord .box {
+    padding: 30px 0px;
+  }
+  .dashbaord .box .row:nth-child(1) .col-md-6, .dashbaord .box .row:nth-child(1) .col-xl, .dashbaord .box .row:nth-child(1) .col {
+    padding: 5px 15px;
+  }
+  .dashbaord .box .dashboard-boxes .icon {
+    min-height: 70px;
+  }
+  .dashbaord .box .dashboard-boxes .icon i {
+    font-size: 29px;
+  }
+  .dashbaord .box .dashboard-boxes a h5 {
+    min-height: 70px;
+    font-size: 18px;
+  }
+  .dashbaord .box .dashboard1-wrapper {
+    margin: 30px 0 0 0;
+  }
+  .dashbaord .box .dashboard-boxes1 .icon i {
+    font-size: 30px;
+    padding: 15px;
+    height: 60px;
+    width: 60px;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 {
+    font-size: 26px;
+    margin: 0;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 small {
+    font-size: 14px;
+  }
+  .dashbaord .box .charts-section {
+    margin: 40px 20px 0 20px;
+  }
+  .dashbaord .box .charts-section canvas {
+    max-height: 500px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashbaord .box {
+    padding: 20px 0px;
+  }
+  .dashbaord .box .row:nth-child(1) .col-md-6, .dashbaord .box .row:nth-child(1) .col-xl, .dashbaord .box .row:nth-child(1) .col {
+    padding: 5px 10px;
+  }
+  .dashbaord .box .dashboard-boxes .icon {
+    min-height: 60px;
+  }
+  .dashbaord .box .dashboard-boxes .icon i {
+    font-size: 25px;
+  }
+  .dashbaord .box .dashboard-boxes a h5 {
+    min-height: 60px;
+    font-size: 14px;
+  }
+  .dashbaord .box .dashboard1-wrapper {
+    margin: 20px 0 0 0;
+  }
+  .dashbaord .box .dashboard-boxes1 .icon i {
+    font-size: 27px;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 {
+    font-size: 23px;
+  }
+  .dashbaord .box .dashboard-boxes1 a h5 small {
+    font-size: 13px;
+  }
+  .dashbaord .box .charts-section {
+    margin: 30px 10px 0 10px;
+  }
+  .dashbaord .box .charts-section canvas {
+    max-width: 250px;
+  }
+}
+
+/* ****************************Dashboard Media Queries End Here************************** */
+
+/* =====================================================
+    Invoices starts
+===================================================== */
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 768px) {
+  .s-r-details li {
+    font-size: 14px;
+  }
+  .s-r-details h5 {
+    font-size: 15px;
+  }
+  .content.invoices-content table {
+    margin-top: 40px;
+  }
+  .invoice-due h6 {
+    font-size: 14px
+  }
+  .buttons a {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .content.invoices-content table.invoice-details {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+  }
+}
+
+/* =====================================================
+    Invoices Ends
+===================================================== */
+
+/* =====================================================
+    form Ends
+===================================================== */
+
+@media (max-width:1200px) {
+  .white-box {
+    padding: 20px 30px;
+  }
+  .white-box {
+    margin: 0;
+  }
+}
+
+@media (max-width:768px) {
+  .white-box .social li a i {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0px 0px 0px 0;
+  }
+  .white-box .social li {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+    
+  }
+}
+
+@media (max-width:576px) {
+  .white-box {
+    position: relative;
+    padding: 10px 20px;
+    text-align: left;
+    min-height: 120px;
+    max-height: 420px;
+    border-radius: 0 0 10px 10px;
+  }
+  .white-box img {
+    width: 70px;
+  }
+  .img{
+    text-align: center;
+  }
+  .white-box.left-side h2 {
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 10px 0;
+    font-size: 23px;
+    text-transform: uppercase;
+  }
+  .white-box .social li a i {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+  }
+  .white-box form h4 {
+    font-size: 23px;
+    margin-bottom: 0px;
+  }
+  
+  .forget-form .white-box form h4 {
+    font-size: 23px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+  }
+  .white-box .new-acc {
+    margin: 0px 0;
+    font-size: 13px;
+}
+  .forget-form .white-box form p {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  .white-box.left-side {
+    position: relative;
+    padding: 20px 20px;
+    text-align: center;
+    min-height: 120px;
+    max-height: 420px;
+    border-radius: 10px 10px 0 0;
+  }
+  .meta{
+    padding: 70px 0 40px 0;
+  }
+  .white-box form {
+    min-width: 260px;
+  }
+  .white-box form .form-control {
+    font-size: 14px;
+  }
+  .white-box form .custom-control-label {
+    margin: 0;
+  }
+  .f-btns li a, .f-btns li button {
+    padding: 3px 30px;
+    font-size: 14px;
+  }
+  .white-box form h2 {
+    line-height: 1.2;
+    font-size: 30px;
+  }
+  .white-box a i.fa-arrow-left {
+    top: -20px;
+    left: 20px;
+    font-size: 17px;
+    padding: 15px;
+  }
+  footer p {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .reg-form form .form-control {
+    margin-bottom: 10px;
+  }
+  .white-box .info li:nth-child(2) {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+}
+
+@media (max-width:319px) , (max-height:700px) {
+  .common-form {
+    height: unset;
+  }
+  .meta{
+    padding: 100px 0 60px 0;
+  }
+
+  footer p{
+    position: relative;
+  }
+}
+
+/* =====================================================
+    form Ends
+===================================================== */
+
+
+/* =====================================================
+    Coming Soon ends
+===================================================== */
+
+
+@media (max-width: 1200px) {
+  .coming-soon10 .middle .subscribe form {
+    width: 70vw;
+    margin: 0 auto;
+  }
+  .coming-soon10 .middle .subscribe form .form-control {
+    padding: 6px 25px;
+    font-size: 14px;
+    height: 35px;
+  }
+  .coming-soon10 .middle .subscribe form .input-group-text {
+    padding: 6px 25px;
+    font-size: 14px;
+    height: 35px;
+    width: 100px;
+    padding-left: 10px;
+  }
+  .coming-soon10 .middle .subscribe a.btn {
+    margin-top: 2vh;
+    padding: 5px 25px;
+    font-size: 14px;
+  }
+  .coming-soon10 .middle .subscribe .input-group-text {
+    font-size: 14px;
+  }
+  .coming-soon10 .middle ul.btns li a.btn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coming-soon10 .middle h1 {
+    font-size: 50px;
+  }
+  .coming-soon10 .middle p {
+    font-size: 14px;
+  }
+  .coming-soon10 .middle h6 {
+    font-size: 14px;
+  }
+  .coming-soon10 .middle .days #days {
+    font-size: 110px;
+  }
+  .coming-soon10 .middle .days #days span {
+    margin-left: -20px;
+    font-size: 20px;
+  }
+  .coming-soon10 .middle #demo {
+    font-size: 30px;
+    word-spacing: 20px;
+  }
+  .coming-soon10 .middle .subscribe form {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .coming-soon10 .middle .subscribe form .form-control {
+    padding: 6px 25px;
+    font-size: 14px;
+    height: 35px;
+  }
+  .coming-soon10 .middle .subscribe form .input-group-text {
+    padding: 6px 25px;
+    font-size: 14px;
+    height: 35px;
+    width: 100px;
+    padding-left: 10px;
+  }
+  .coming-soon10 .middle .subscribe a.btn {
+    margin-top: 2vh;
+    padding: 5px 25px;
+    font-size: 14px;
+  }
+  .coming-soon10 .middle .subscribe .input-group-text {
+    font-size: 14px;
+  }
+  .coming-soon10 .middle ul.btns li a.btn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .coming-soon10 .middle h1 {
+    font-size: 40px;
+  }
+  .coming-soon10 .middle h6 {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .coming-soon10 .middle .days #days {
+    font-size: 100px;
+  }
+  .coming-soon10 .middle .days #days span {
+    margin-left: -20px;
+    font-size: 15px;
+  }
+  .coming-soon10 .middle #demo {
+    font-size: 25px;
+  }
+  .coming-soon10 .middle .subscribe a.btn {
+    margin-top: 2vh;
+    padding: 5px 25px;
+    font-size: 14px;
+  }
+  .coming-soon10 footer.copyrights p {
+    font-size: 14px;
+  }
+  .coming-soon10 footer.copyrights p span {
+    font-size: 18px;
+  }
+  .coming-soon10 ul.social {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width:319px) , (max-height:600px) {
+  .coming-soon10 {
+    height: unset;
+  }
+  .coming-soon10 .middle {
+    padding: 50px 0 40px 0;
+  }
+  .coming-soon10 footer.copyrights p {
+    position: relative;
+  }
+}
+
+
+
+/* =====================================================
+    Coming Soon ends
+===================================================== */
+/* =====================================================
+    Error 404 ends
+===================================================== */
+
+
+@media (max-width: 992px) {
+  .error-page3 .error-meta h4 {
+    font-size: 30px;
+  }
+  .error-page3 .error-meta p {
+    max-width: 80vw;
+    margin-top: 10px;
+  }
+  .error-page3 .error-meta .error {
+    font-size: 120px;
+  }
+  .error-page3 .error-meta form {
+    max-width: 80vw;
+  }
+  .error-page3 .error-meta form a.btn {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .error-page3 .error-meta img {
+    width: 180px;
+  }
+  .error-page3 .error-meta p {
+    max-width: 90vw;
+    font-size: 14px;
+  }
+  .error-page3 .error-meta .error {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .error-page3 .error-meta h4 {
+    font-size: 25px;
+  }
+  .error-page3 .error-meta p {
+    max-width: 95vw;
+    font-size: 13px;
+  }
+  .error-page3 .error-meta h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .error-page3 .error-meta h3 {
+    margin: 5px 0 10px 0;
+    text-transform: capitalize;
+  }
+  .error-page3 .error-meta ul.btns-page li a.btn {
+    padding: 5px 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width:319px) , (max-height:600px) {
+  .error-page3 {
+    height: unset;
+    padding: 90px 0 0 0;
+  }
+  .error-page3 footer.copyrights p {
+    position: relative;
+  }
+}
+
+
+/* =====================================================
+    Error 404 ends
+===================================================== */

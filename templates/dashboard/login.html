@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from kiswa.net/themes/star-travel/demo/demo-ltr/admin-demo/form-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jul 2024 20:04:00 GMT -->
+<head>
+    <title>Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Framework Stylesheets Start-->
+
+
+    	<style>
+		.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/loader-red.gif) center no-repeat #fff;
+}
+	</style>
+	<link rel="stylesheet" href="../../static/dashboard/css/loader.css">
+
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="../../static/dashboard/css/bootstrap-5.3.2.min.css">
+
+    <!-- Framework Stylesheets End-->
+
+
+
+    <!-- Font Awsome Stylesheet -->
+    <link rel="stylesheet" href="../../static/dashboard/vendors/fontawesome5.7.2/css/all.min.css">
+
+
+    <!-- Custom Stylesheet Start-->
+
+
+    <link rel="stylesheet" type="text/css" href="../../static/dashboard/css/style.css">
+
+    <link rel="stylesheet" href="../../static/dashboard/css/custom.css">
+
+    <!-- Custom Stylesheet End-->
+
+
+
+
+    <link rel="icon" href="../../static/dashboard/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!--====== LOADER =====-->
+    <div class="loader"></div>
+    <a href="{% url 'home' %}" class="btn btn-primary ms-5 mt-5 sh-above position-absolute">Go Back</a>
+    <section class="login-form common-form bg-image flex-centering">
+        <div class="container-fluid">
+            <div class="meta">
+                <div class="row">
+                    <div class="col-sm-5 col-md-4 col-lg-3 ms-sm-auto pe-sm-0">
+                        <div class="white-box left-side sh-above">
+                            <div class="img">
+                                <img src="../../static/img/logo.png" alt="logo-img" class="img-fluid ">
+                            </div>
+                            <h2 class="">Welcome to Kavya Tours</h2>
+                      
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-md-5 col-lg-4 me-sm-auto ps-sm-0">
+                        <div class="white-box sh-above flex-centering">
+                            <form action="{% url 'dashboard_login' %}" method="POST">
+                                {% csrf_token %}
+                                <h4>Login</h4>
+                                <p class="new-acc">Only Staff login </p>
+                                <div class="form-group mt">
+                                    <input type="text" class="form-control " id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" name="username" placeholder="Enter Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control " id="exampleInputPassword1"
+                                        aria-describedby="passwordHelp" name="password" placeholder="Enter Password" required>
+                                </div>
+                              
+                                <ul class="list-unstyled  info">
+                                    <li><button type="submit" class="btn d-block">Login</button></li>
+                                </ul>
+                            </form>
+                        </div><!-- end white-box -->
+                    </div>
+                </div>
+            </div>
+            <footer class="sh-above">
+                <p>Designed By <a href="https://zenrevo.com/" class="text-white" >Zenrevo IT Solutions</a></p>
+            </footer>
+        </div><!-- end container-fluid -->
+    </section><!-- end login-form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript, Not optional it's need too -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../static/dashboard/js/jquery-3.3.1.min.js"></script>
+    <script src="../../static/dashboard/js/popper.min.js"></script>
+    <script src="../../static/dashboard/js/bootstrap-5.3.2.min.js"></script>
+    <script src="../../static/dashboard/js/customscriptfile.js"></script>
+    <!-- Page Scripts Ends -->
+
+
+
+</body>
+
+
+<!-- Mirrored from kiswa.net/themes/star-travel/demo/demo-ltr/admin-demo/form-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jul 2024 20:04:00 GMT -->
+</html>

@@ -1,0 +1,127 @@
+{% extends "my-profile.html" %}
+
+{% block content %}
+
+
+
+
+            <div class="col-xl-8 col-lg-8 col-md-12">
+
+                <!-- Personal Information -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4><i class="fa-solid fa-file-invoice me-2"></i>Personal Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'profile' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row align-items-center justify-content-start">
+
+                            
+
+                                <div class="col-xl-12 col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label"> Name</label>
+                                        <input type="text" class="form-control" name="name" value="{{request.user.name}}">
+                                    </div>
+                                </div>
+
+                
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email ID</label>
+                                        <input type="email" class="form-control" name="email" value="{{request.user.email}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Mobile</label>
+                                        <input type="text" class="form-control" name="phone" value="{{request.user.phone}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Date of Birth</label>
+                                        <input type="date" class="form-control" name="dob" value="{{request.user.dob | date:'Y-m-d'}}">
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Address</label>
+                                        <textarea
+                                            class="form-control ht-120" name="address">{{request.user.address}}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                                    <div class="d-flex align-items-center row">
+                                        <div>
+
+                                            <label class="form-label">Confirm</label>
+                                            <input type="checkbox" required>  
+                                        </div>
+                                        <button type="submit" class="btn btn-sm btn-light-primary px-4 fw-medium mb-0" for="uploadfile-1">Change</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4><i class="fa-solid fa-lock me-2"></i>Update Password</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'profile' %}?option=changepass" method="POST">
+                            {% csrf_token %}
+                            <div class="row align-items-center justify-content-start">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Enter OTP</label>
+                                        <input type="number" min="0" max="9999" name="otp" class="form-control" placeholder="OTP">
+                                    </div>
+                                    <div class="text-end">
+                                        <a href="{% url 'otpverify' %}?resendotp=true" class="btn btn-md btn-primary mb-0">Generate OTP</a>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">New Password</label>
+                                        <input type="password" name="pass1" class="form-control" placeholder="*********">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Confirm Password</label>
+                                        <input type="password" name="pass2" class="form-control" placeholder="*********">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-md btn-primary mb-0">Change Password</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        
+<!-- ============================ Booking Page End ================================== -->
+{% endblock content %}

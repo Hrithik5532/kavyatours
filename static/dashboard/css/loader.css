@@ -1,0 +1,6 @@
+
+.wrapper,
+.opacity_hide{opacity: 0;visibility: hidden;transition: 0.8s;}
+.opacity_show{
+  opacity: 1;visibility: visible;transition: .5s;
+}

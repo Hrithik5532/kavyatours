@@ -4100,7 +4100,7 @@ nav a:hover {
   font-weight: 600;
   letter-spacing: 0.2px;
   text-transform: capitalize;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .nav-menu.nav-menu-social li a {
@@ -4447,7 +4447,7 @@ nav a {
 }
 
 .nav-brand img {
-  width: 130px;
+  width: 106px;
   position: relative;
 }
 
@@ -6440,3 +6440,13 @@ Responsiveness Start
     font-size: 1.1rem;
   }
 }/*# sourceMappingURL=style.css.map */
+
+
+/* custome */
+
+.featuresBox-wrap, .featuresBox-captions, .fbxer-wraps, .fbxerWraps-caps{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

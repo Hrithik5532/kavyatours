@@ -1,0 +1,341 @@
+{% extends "dashboard/template.html" %}
+
+{% block body %}
+<style>
+    .multi-select {
+        position: relative;
+    }
+    
+    .select-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    .select-box select {
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .select-box .over-select {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    #checkboxes {
+        display: none;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #f1f1f1;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+    
+    #checkboxes label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    #checkboxes input {
+        margin-right: 10px;
+    }
+</style>
+		<!-- ===========Innerpage-wrapper============= -->
+		<section>
+			<div class="content listing-content users-list">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+
+						<div class="col">
+							<div class="heading-messages">
+								<h3>Users</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+                        
+						<div class="col-md-4">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">All Routes info</a>
+								</div>
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>Bus Info
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+                    
+					<div class="box">
+						<div class="row no-gutters">
+							<div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#" data-bs-toggle="modal" data-bs-target="#create-new">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div>
+							
+
+						</div><!-- end row -->
+						<div class="row no-gutters">
+							<div class="col-12 table-responsive">
+								<table id="example" class="table table-hover responsive listing">
+									<thead>
+										<tr>
+                                            <th>ID</th>
+											<th>Date</th>
+                                            <th>Bus Number</th>
+											<th>Boarding point</th>
+											<th>Dropping Point</th>
+											<th>booked_seats</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for i in buses %}
+
+
+										<tr>
+											<td>#{{i.route.id}}</td>
+											<td>{{i.route.boarding_date}} <br>  ({{i.route.boarding_time}}) </td>
+											<td>{{i.route.bus_no}}</td>
+											<td>{{i.route.boarding_point}} <br>  ({{i.route.boarding_time}}) </td>
+											<td>{{i.last_dropping_point.dropping_point.name}} <br>  ({{i.route.dropping_time}}) </td>
+											<td>{{i.booked_seats}}/{{i.route.total_seats}}</td>
+											{% if i.route.status %}
+											<td class="active" style="background:green;color:white;">Active</td>
+											{% else %}
+											<td class="expired" style="background:red;color:white;">Expired</td>
+
+											{% endif %}
+											<td>
+												<a href="{% url 'bus-details' i.route.id  %}"><i class="fas fa-edit"></i></a>
+												<a href="{% url 'bus-info' %}?id={{i.id}}&option=delete"><i class="fas fa-trash-alt"></i></a>
+											</td>
+										</tr>
+
+										{% endfor %}
+
+										
+
+									</tbody>
+								</table>
+							</div><!-- end column -->
+						</div><!-- end row -->
+					</div><!-- end box -->
+				</div><!-- end in-content-wrapper -->
+			</div><!-- end users-list -->
+		</section>
+		<!-- ===========End Innerpage-wrapper============= -->
+
+        <div class="modal fade" id="create-new" tabindex="-1" role="dialog" aria-labelledby="create-newmodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="create-newmodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Create New</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
+					<div class="hotel-listing-form">
+                        <form class="text-center" action="{% url 'bus-info' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-md">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to" class="">Bus No.:</label>
+                                                <input type="text" class="form-control" name="bus_no" required id="to">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to1" class="">Boarding Date</label>
+                                                <input type="date" class="form-control" name="boarding_date" required id="to1">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                   
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to2" class="">Boarding Time:</label>
+                                                <input type="time" class="form-control" name="boarding_time" required id="to2">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to3" class="">Boarding Point:</label>
+                                                <select  id="" class="form-control" name="boarding_point" required>
+                                                    <option disabled>Select</option>
+                                                    {% for i in boardingpoint %}
+                                                    <option value="{{i.id}}">{{i.name}}</option>
+
+                                                    {% endfor %}
+                                                </select> 
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                  
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to4" class="">Route:</label>
+                                                <select name="route_dropping_points"  class="form-control" required>
+                                                    <option disabled>Select</option>
+                                                    {% for i in routes %}
+                                                    <option value="{{i.id}}">{{i.name}}</option>
+
+                                                    {% endfor %}
+                                                </select>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                        
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to6" class="">Dropping Time:</label>
+                                                <input type="time" class="form-control" name="dropping_time" required id="to6">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Dropping Date:</label>
+                                                <input type="date" class="form-control text-center" name="dropping_date" required id="to7">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Toal Seats : </label>
+                                                <input type="number" min="0" value="50" class="form-control text-center" name="total_seats" required id="to8">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Base Price : </label>
+                                                <input type="number" min="0"  class="form-control text-center" name="base_price" required id="to9">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Last Price : </label>
+                                                <input type="number" min="0"  class="form-control text-center" name="price_drop_to" required id="to10">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+
+
+  
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to5" class="">Facilities:</label>
+                                                <div class="multi-select">
+                                                    <div class="select-box" onclick="toggleDropdown()">
+                                                        <select >
+                                                            <option>Select Facilities</option>
+                                                        </select>
+                                                        <div class="over-select"></div>
+                                                    </div>
+                                                    <div id="checkboxes" style=" flex-direction: column;align-content: center;flex-wrap: wrap;align-items: flex-start;">
+                                                        <!-- These options would be dynamically generated in a real application -->
+                                                        {% for i in busfacility %}
+                                                        
+                                                        <label for="facility-{{ i.id }}">
+                                                            <input type="checkbox" id="facility-{{ i.id }}" value="{{ i.id }}" onclick="updateSelectedFacilities()"/> {{ i.name }}
+                                                        </label>
+                                                        {% endfor %}
+                                                        <input type="hidden" name="facilities" id="facilities">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+
+                                        
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Confirm : </label>
+                                                <input type="checkbox" required id="to11">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    </div><!-- end row -->
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            
+                                            <button type="submit" class="btn" type="submit">Create </button>
+                                        </li>
+                                       
+                                    </ul>
+                                </div><!-- End column -->
+                            
+                            </div><!-- end row -->
+
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+				</div> 
+
+			  </div>
+			</div>
+		</div>
+
+
+<script>
+    // script.js
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Set min attribute for date inputs to block dates earlier than today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('to1').setAttribute('min', today);
+        document.getElementById('to7').setAttribute('min', today);
+    });
+
+    
+
+
+
+
+    let expanded = false;
+
+    function toggleDropdown() {
+        const checkboxes = document.getElementById("checkboxes");
+        if (!expanded) {
+            checkboxes.style.display = "flex";
+            expanded = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded = false;
+        }
+    }
+
+    function updateSelectedFacilities() {
+        const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+        const selectedFacilities = [];
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedFacilities.push(checkbox.value);
+            }
+        });
+        console.log(selectedFacilities);
+        document.getElementById('facilities').value = JSON.stringify(selectedFacilities);
+        console.log(document.getElementById('facilities').value);
+
+    }
+
+    // Optional: close dropdown when clicking outside
+    window.onclick = function(event) {
+        const checkboxes = document.getElementById("checkboxes");
+        if (!event.target.matches('.select-box') && !event.target.closest('.select-box')) {
+            checkboxes.style.display = "none";
+            expanded = false;
+        }
+    }
+
+</script>
+{% endblock body %}
