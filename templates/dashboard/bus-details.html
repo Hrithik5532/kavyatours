@@ -540,7 +540,10 @@
 
                                 <div class="mt-2">
 									<p id = "seatCount2">Selected Seats : 0</p> 
-                                    <form action="{% url 'bus-details' bus.id %}?option=bookedSeats" method="POST" >
+									<button class="btn btn-warning btn-md fw-medium full-width" type="button" data-bs-toggle="modal" data-bs-target="#book-seat-user">
+										Book for cash payment<i class="fa-solid fa-arrow-trend-up ms-2"></i>
+									</button>
+                                    <form action="{% url 'bus-details' bus.id %}?option=reseveragent" method="POST" >
 										{% csrf_token %}
                                         <input type="hidden" id="selectedSeatsInput" name="selectedSeats">
                                         <input type="hidden" id="routeID" name="routeID" value="{{bus.id}}">
@@ -550,7 +553,7 @@
                                         <label for="">Confirm</label>
                                         <input type="checkbox" required>
                                         <button class="btn btn-primary btn-md fw-medium full-width" type="submit">
-                                            Confirm<i class="fa-solid fa-arrow-trend-up ms-2"></i>
+                                            Reserve For Agent<i class="fa-solid fa-arrow-trend-up ms-2"></i>
                                         </button>
                                     </form>
                                 </div> 
@@ -570,7 +573,71 @@
 
 
 
+		<div class="modal fade" id="book-seat-user" tabindex="-1" role="dialog" aria-labelledby="book-seat-usermodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="book-seat-usermodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Booking Details - Cash Payment</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
 
+					<form action="{% url 'bus-details' bus.id %}?option=custmerBooking" method="POST">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-md">
+									
+							  
+							
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to6" class="">Number of Seats :</label> <small>Non editable</small> 
+											<input type="number" min="0" max="49" class="form-control" name="seatCount" readonly id="seatCount3">
+											<input type="hidden" id="selectedSeatsInput2" name="selectedSeats">
+
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Customer Name:</label>
+											<input type="text" class="form-control text-center" name="customer_name"  required id="customer_name">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Phone Number : </label>
+											<input type="text" class="form-control text-center" name="customer_phone" required id="customer_phone">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+
+								
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Confirm : </label>
+											<input type="checkbox" required id="to11">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+								</div><!-- end row -->
+
+
+							
+										
+										<button type="submit" class="btn btn-primary btn-md fw-medium full-width" type="submit">Save </button>
+								   
+								</ul>
+							</div><!-- End column -->
+						
+						</div><!-- end row -->
+					</form>
+				</div> 
+
+			  </div>
+			</div>
+		</div>
 
 		<!-- Log In Modal -->
 		<div class="modal fade" id="edit-info" tabindex="-1" role="dialog" aria-labelledby="edit-infomodal" aria-hidden="true">
@@ -760,8 +827,10 @@
 			document.addEventListener('DOMContentLoaded', function() {
 				const seats = document.querySelectorAll('.seat input[type="checkbox"]');
 				const selectedSeatsInput = document.getElementById('selectedSeatsInput');
+				const selectedSeatsInput2 = document.getElementById('selectedSeatsInput2');
 				const seatCountInput = document.getElementById('seatCountInput');
 				const seatCountInput2 = document.getElementById('seatCount2');
+				const seatCountInput3 = document.getElementById('seatCount3');
 			
 				seats.forEach(seat => {
 					seat.addEventListener('change', updateSelectedSeats);
@@ -775,8 +844,10 @@
 					const seatCount = selectedSeats.length;
 			
 					selectedSeatsInput.value = selectedSeats.join(',');
+					selectedSeatsInput2.value = selectedSeats.join(',');
 					seatCountInput2.innerHTML = "Selected Seats : " + seatCount;
 					seatCountInput.value = seatCount;
+					seatCountInput3.value = seatCount;
 					console.log(selectedSeatsInput.value);
 				}
 			});

@@ -230,7 +230,7 @@ def bus_details(request,id):
     
     
     if request.method == 'POST':
-        if request.GET.get('option')=='bookedSeats':
+        if request.GET.get('option')=='reseveragent':
             seat_no = request.POST.get('selectedSeats')
             if bus.booked_seats == '' or bus.booked_seats == None:
                 bus.booked_seats = f'{seat_no}'
@@ -240,9 +240,9 @@ def bus_details(request,id):
             messages.success(request, 'Seat booked successfully.')
             return redirect('bus-details',id=id)
         
-        
-        
-        
+        if request.GET.get('option')=='custmerBooking':
+            pass
+            
         
         
         bus_no  = request.POST.get('bus_no')

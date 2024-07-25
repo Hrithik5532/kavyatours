@@ -112,6 +112,7 @@ class PaymentDetails(models.Model):
     payment_status = models.CharField(max_length=100, blank=True, null=True)
     payment_amount = models.CharField(max_length=100, blank=True, null=True)
     
+    
     upi_response = models.TextField()
     
     created_at = models.DateTimeField(auto_now_add=True)
@@ -146,7 +147,10 @@ class BookingDetails(models.Model):
     id = models.CharField(primary_key=True, max_length=9, editable=False, unique=True)
     user = models.ForeignKey('Home.User', on_delete=models.CASCADE)
     bus = models.ForeignKey(NewRoute, on_delete=models.CASCADE)
-    payment = models.ForeignKey(PaymentDetails, on_delete=models.CASCADE)
+    payment = models.ForeignKey(PaymentDetails, on_delete=models.CASCADE, null=True, blank=True)
+    
+    payment_model = models.CharField(max_length=100, blank=True, null=True)
+    
     seat_number = models.CharField(max_length=100, blank=True, null=True)
     total_seats = models.IntegerField(default=1)
     total_price = models.IntegerField(default=0)
