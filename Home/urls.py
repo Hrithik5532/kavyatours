@@ -10,6 +10,7 @@ urlpatterns = [
     
     
     path('about', views.about, name='about'),
+    path('gallery', views.gallery, name='gallery'),
     path('contact-us', views.contact, name='contact'),
     path('login', views.signin, name='login'),
     path('register', views.signup, name='signup'),
@@ -21,7 +22,6 @@ urlpatterns = [
     
     
     path('available-routes', views.available_routes,name="available_routes"),
-    path('book-route', views.book_route,name="book-route"),
     path('view-route/<str:id>', views.view_routes, name='view_routes'),
 
 ]

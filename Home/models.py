@@ -23,8 +23,9 @@ class User(AbstractUser):
 
 
 
-
-
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='gallery')
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 

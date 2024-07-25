@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+
+	{% block body %}
+<style>
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 10px;
+	}
+	.gallery-item {
+		flex: 1 1 300px; /* Grow to fill available space, shrink if needed, base size 300px */
+		margin: 10px;
+		overflow: hidden;
+		border: 2px solid #ccc;
+		border-radius: 10px;
+	}
+	.gallery-item img {
+		width: 100%;
+		height: auto;
+		display: block;
+		transition: transform 0.2s ease;
+	}
+	.gallery-item:hover img {
+		transform: scale(1.05);
+	}
+</style>	
+
+
+		<!-- ============================ Booking Title ================================== -->
+		<section class="bg-cover position-relative" style="background:url(../static/img/bg-5.jpeg)no-repeat;" data-overlay="5">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-7 col-lg-9 col-md-12">
+
+						<div class="fpc-capstion text-center my-4">
+							<div class="fpc-captions">
+								<h1 class="xl-heading text-light">Gallery </h1>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Booking Title ================================== -->
+
+
+		<!-- ============================ About Us Section ================================== -->
+		<section>
+			<div class="container">
+
+				{% for image in gallery %}
+				<div class="gallery-item">
+					<img src="{{ image.image.url }}" alt="kavyabookings">
+				</div>
+				{% endfor %}
+				
+			</div>
+		</section>
+		<!-- ============================ About Us Section End ================================== -->
+		
+		
+		
+
+
+		{% endblock body %}

@@ -3,9 +3,11 @@ from django.contrib import messages
 from .models import Contact
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import User
+from .models import *
 import random
 from RouteDir.models import *
+from datetime import datetime, timedelta
+import requests
 
 
 def home(request):
@@ -176,11 +178,11 @@ def available_routes(request):
     
     allroutes = NewRoute.objects.order_by('-boarding_date').all()
 
-    if request.GET.get('boardingpoint') or request.GET.get('droppingpoints') or request.GET.get('boarding_date'):
+    if request.GET.get('facilities') or request.GET.get('boardingpoint') or request.GET.get('droppingpoints') or request.GET.get('boarding_date'):
         boardingpoint = request.GET.get('boardingpoint')
         droppingpoints = request.GET.get('droppingpoints')
         boarding_date = request.GET.get('boarding_date')
-        
+        facility = request.GET.get('facilities')
         if boardingpoint:
             allroutes = allroutes.filter(boarding_point__name=boardingpoint)
         if droppingpoints:
@@ -188,6 +190,10 @@ def available_routes(request):
         
         if boarding_date:
             allroutes = allroutes.filter(boarding_date=boarding_date)
+
+        if facility:
+            print(facility)
+            allroutes = allroutes.filter(facilites__id=facility)
     
     routes_with_last_dropping = []
     for route in allroutes:
@@ -206,19 +212,25 @@ def available_routes(request):
     busfacility = BusFacility.objects.all()
     boardingpoint = BoardingPoints.objects.all()
     droppingpoints = DroppingPoints.objects.all()
-    return render(request, 'flight-list-01.html',{'discount':False,'discount_percent':10,'boardingpoint':boardingpoint,'droppingpoints':droppingpoints,'allroutes':routes_with_last_dropping,'busfacility':busfacility})
+    
+    today = datetime.now().date() 
+    current_str = request.GET.get('boarding_date')
+    current = None
+    if current_str:
+        try:
+            current = datetime.strptime(current_str, "%Y-%m-%d").date()
+        except ValueError:
+            # Handle invalid date format
+            pass
 
-
-
-def book_route(request):
-    if request.method == 'POST':
-        route_id = request.POST.get('routeID')
-        seat_number = request.POST.get('selectedSeats').split(',')
-        print(route_id,seat_number)
-        messages.success(request, 'Route booked successfully.')
-        return redirect(request.META.get('HTTP_REFERER'))
-
-
+    if current and current > today:
+        tomorrow = current + timedelta(days=1)
+        previous = current - timedelta(days=1)
+    else:
+        tomorrow = today + timedelta(days=1)
+        previous = ''
+        current = today
+    return render(request, 'flight-list-01.html',{'previous':previous,'today':today,'tomorrow':tomorrow,'current':current,'discount':False,'discount_percent':10,'boardingpoint':boardingpoint,'droppingpoints':droppingpoints,'allroutes':routes_with_last_dropping,'busfacility':busfacility})
 
 def view_routes(request,id):
     route = NewRoute.objects.get(id=id)
@@ -264,6 +276,9 @@ def view_routes(request,id):
 def about(request):
     return render(request, 'about-us.html')
 
+def gallery(request):
+    gallery = Gallery.objects.all()
+    return render(request, 'gallery.html',{'gallery':gallery})
 
 def privacy_policies(request):
     return render(request, 'privacy-policy.html')

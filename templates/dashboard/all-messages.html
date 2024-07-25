@@ -1,0 +1,192 @@
+{% extends "dashboard/template.html" %}
+{% block body %}
+
+<style>
+    .form-group select{
+        border: 1px solid #ccc;
+    }
+</style>
+
+		<!-- ===========Innerpage-wrapper============= -->
+		<section>
+			<div class="content listing-content users-list">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+
+						<div class="col">
+							<div class="heading-messages">
+								<h3>All Messages</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+						<div class="col-md-3">
+							<div class="breadcrumb">
+								
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i>All Messages List
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+
+					<div class="box">
+						<div class="row no-gutters">
+							{% comment %} <div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div><!-- End column--> {% endcomment %}
+							
+
+						</div><!-- end row -->
+						<div class="row no-gutters">
+                            <div class="col-auto me-auto text-start pe-0">
+								<div class="add-new">
+									<a href="#" data-bs-toggle="modal" data-bs-target="#create-new">Add New<i class="fas fa-plus"></i></a>
+								</div><!-- End add-new-->
+							</div>
+							<div class="col-12 table-responsive">
+								<table id="example" class="table table-hover responsive listing">
+									<thead>
+										<tr>
+											<th>Date </th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>
+											<th>subject</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for i in allmessages %}
+                                            <tr class="message-row" data-message-id="{{i.id}}">
+                                                <td>{{i.created_at }}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.phone}}</td>
+                                                <td>{{i.subject}}</td>
+                                                <td>
+                                                    <a href="{% url 'all-messages' %}?id={{i.id}}&option=delete"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr id="message-{{i.id}}" class="message-content" style="display: none;">
+                                                <td colspan="5">{{i.message}}</td> 
+                                            </tr>
+                                        {% endfor %}
+
+										
+
+									</tbody>
+								</table>
+							</div><!-- end column -->
+						</div><!-- end row -->
+					</div><!-- end box -->
+				</div><!-- end in-content-wrapper -->
+			</div><!-- end users-list -->
+		</section>
+		<!-- ===========End Innerpage-wrapper============= -->
+
+{% comment %} 
+        <div class="modal fade" id="create-new" tabindex="-1" role="dialog" aria-labelledby="create-newmodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="create-newmodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Create New Route</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
+					<div class="hotel-listing-form">
+                        <form class="text-center" action="{% url 'all-routes' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-md">
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to3" class="">Name:</label>
+                                                <div id="select">
+                                                    <input type="text" class="form-control" name="name"> 
+                                                </div>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to3" class="">Dropping Point:</label>
+                                                <div id="select-container">
+                                                   
+                                                </div>
+                                                <button type="button" id="addnew">Add New <i class="fas fa-plus"></i></button>
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    
+                                        <input type="hidden" name="dropping_points" id="hidden-dropping-points">
+                                    
+
+                                        <div class="col-md">
+                                            <div class="form-group">
+                                                <label for="to7" class="">Confirm : </label>
+                                                <input type="checkbox" required id="to11">
+                                            </div><!-- end form-group -->
+                                        </div><!-- End column -->
+                                    </div><!-- end row -->
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            
+                                            <button type="submit" class="btn" type="submit">Create </button>
+                                        </li>
+                                       
+                                    </ul>
+                                </div><!-- End column -->
+                            
+                            </div><!-- end row -->
+
+                        </form>
+                    </div><!-- end hotel-listing-form -->
+				</div> 
+
+			  </div>
+			</div>
+		</div>
+ {% endcomment %}
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const messageRows = document.querySelectorAll('.message-row');
+                let clickTimer = null;
+                
+                messageRows.forEach(row => {
+                    row.addEventListener('click', function() {
+                        const messageId = this.getAttribute('data-message-id');
+                        const messageContent = document.getElementById(`message-${messageId}`);
+                        
+                        if (clickTimer === null) {
+                            clickTimer = setTimeout(() => {
+                                // Single click action
+                                // Hide all message content rows
+                                document.querySelectorAll('.message-content').forEach(content => {
+                                    content.style.display = 'none';
+                                });
+                                
+                                // Show the clicked message content
+                                messageContent.style.display = 'table-row';
+                                
+                                clickTimer = null;
+                            }, 300); // 300ms delay to differentiate between single and double click
+                        } else {
+                            clearTimeout(clickTimer);
+                            clickTimer = null;
+                            
+                            // Double click action
+                            messageContent.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            </script>
+        
+        {% endblock body %}

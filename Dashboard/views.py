@@ -308,4 +308,17 @@ def bus_details(request,id):
     routes =RouteDroppingPoint.objects.all()
     facilities = bus.facilites.values_list('id', flat=True)
     facilities_str = ','.join(map(str, facilities)) 
+    print(facilities_str)
     return render(request, 'dashboard/bus-details.html',{'selected_facilities': facilities_str,'boardingpoint':boardingpoint,'droppingpoints':droppingpoints,'busfacility':busfacility,'routes':routes,'busdetails':True,'bus':bus,"booked_seats":booked_seats,'available_seats':available_seats,'last_dropping_point':last_dropping_point})
+
+
+
+
+def all_messages(request):
+    message = Contact.objects.order_by('-created_at').all()
+    if request.GET.get('option')=='delete':
+        id = request.GET.get('id')
+        Contact.objects.filter(id=id).delete()
+        messages.success(request, 'Message deleted successfully')
+        return redirect('all-messages')
+    return render(request, 'dashboard/all-messages.html', {'allmessages': message})

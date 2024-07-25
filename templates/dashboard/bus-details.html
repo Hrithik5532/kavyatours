@@ -1,0 +1,858 @@
+{% extends "dashboard/template.html" %}
+
+	{% block body %}
+	
+	<style>
+		.bus-layout {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            gap: 10px;
+            justify-content: center;
+            margin: 0 auto;
+            width: 300px;
+        }
+        .seat {
+            position: relative;
+        }
+        .seat input {
+            display: none;
+        }
+        .seat label {
+			display: block;
+			width: 33px;
+			height: 37px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f8f8f8;
+			text-align: center;
+			line-height: 38px;
+			cursor: pointer;
+        }
+        .seat input:checked + label {
+            background-color: #4caf50;
+            color: #fff;
+        }
+		.seat input[disabled] + label {
+			background-color: #ff5722; /* Change this to your desired color for booked seats */
+			color: #fff; /* Text color for booked seats */
+		}
+		.seat label.booked {
+			color: red;
+		}
+        .row-space {
+            height: 20px;
+        }
+        .column-space {
+            width: 50px;
+        }
+		.popup-seat-selector {
+			display: flex ;
+			flex-wrap: nowrap;
+			justify-content: space-around;
+			flex-direction: row;}
+		.card-body{
+				display: flex;
+				justify-content: space-around;
+			}
+		@media (max-width: 768px) {
+			.popup-seat-selector {
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: space-around;
+				flex-direction: column-reverse;
+			}
+			.card-body{
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row-reverse;
+			}
+			}
+		
+	</style>
+	<style>
+		.multi-select {
+			position: relative;
+		}
+		
+		.select-box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #f1f1f1;
+			border: 1px solid #ccc;
+			padding: 10px;
+			cursor: pointer;
+		}
+		
+		.select-box select {
+			border: none;
+			outline: none;
+			background: none;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		
+		.select-box .over-select {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+		
+		#checkboxes {
+			display: none;
+			border: 1px solid #ccc;
+			padding: 10px;
+			background-color: #f1f1f1;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
+		
+		#checkboxes label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		
+		#checkboxes input {
+			margin-right: 10px;
+		}
+		.form-control{
+			border:1px solid #ccc !important;
+		}
+	</style>
+		<!-- ============================ Hotel Details Start ================================== -->
+		<section class="mt-0">
+			<div class="content listing-content users-list mt-0">
+				<div class="in-content-wrapper">
+					<div class="row no-gutters">
+
+						<div class="col">
+							<div class="heading-messages">
+								<h3>Bus Info - #{{bus.id}}</h3>
+							</div><!-- End heading-messages -->
+						</div><!-- End column -->
+                        
+						<div class="col-md-4">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item"></i><a href="#">All Routes info</a>
+								</div>
+								<div class="breadcrumb-item"><i class="fas fa-angle-right"></i><a href="#">Bus info</a>
+								</div>
+								<div class="breadcrumb-item active"><i class="fas fa-angle-right"></i># {{bus.id}}
+								</div>
+							</div><!-- end breadcrumb -->
+						</div><!-- End column -->
+					</div><!-- end row -->
+					
+
+					<!-- Flight Info -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="row">
+							<div class="col-xl-6 col-lg-8 col-md-12">
+                                <div class="crd-heaader-0 flex-shrink-0 p-3 mb-md-0" style="border: 1px solid;">
+									<div>
+										
+									</div>
+                                    <div class="seate-info">
+                                        <div class="bus-layout">
+                                            <!-- First row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatv1">
+                                                <label for="seatv1">v1</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatv2">
+                                                <label for="seatv2">v2</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatA">
+                                                <label for="seatA">A</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatB">
+                                                <label for="seatB">B</label>
+                                            </div>
+                                    
+                                            <!-- Repeat for additional rows -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatC">
+                                                <label for="seatC">C</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatD">
+                                                <label for="seatD">D</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatE">
+                                                <label for="seatE">E</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatF">
+                                                <label for="seatF">F</label>
+                                            </div>
+            
+                                            <!-- Repeat for additional rows -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatG">
+                                                <label for="seatG">G</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatH">
+                                                <label for="seatH">H</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatI">
+                                                <label for="seatI">I</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seatJ">
+                                                <label for="seatJ">J</label>
+                                            </div>
+                                            
+            
+                                            <!-- First row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat1">
+                                                <label for="seat1">1</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat2">
+                                                <label for="seat2">2</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat3">
+                                                <label for="seat3">3</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat4">
+                                                <label for="seat4">4</label>
+                                            </div>
+                                            
+                                            <!-- Second row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat5">
+                                                <label for="seat5">5</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat6">
+                                                <label for="seat6">6</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat7">
+                                                <label for="seat7">7</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat8">
+                                                <label for="seat8">8</label>
+                                            </div>
+                                            
+                                            <!-- Third row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat9">
+                                                <label for="seat9">9</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat10">
+                                                <label for="seat10">10</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat11">
+                                                <label for="seat11">11</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat12">
+                                                <label for="seat12">12</label>
+                                            </div>
+                                            
+                                            <!-- Fourth row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat13">
+                                                <label for="seat13">13</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat14">
+                                                <label for="seat14">14</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat15">
+                                                <label for="seat15">15</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat16">
+                                                <label for="seat16">16</label>
+                                            </div>
+                                            
+                                            <!-- Fifth row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat17">
+                                                <label for="seat17">17</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat18">
+                                                <label for="seat18">18</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat19">
+                                                <label for="seat19">19</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat20">
+                                                <label for="seat20">20</label>
+                                            </div>
+                                            
+                                            <!-- Sixth row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat21">
+                                                <label for="seat21">21</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat22">
+                                                <label for="seat22">22</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat23">
+                                                <label for="seat23">23</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat24">
+                                                <label for="seat24">24</label>
+                                            </div>
+                                            
+                                            <!-- Seventh row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat25">
+                                                <label for="seat25">25</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat26">
+                                                <label for="seat26">26</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat27">
+                                                <label for="seat27">27</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat28">
+                                                <label for="seat28">28</label>
+                                            </div>
+                                            
+                                            <!-- Eighth row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat29">
+                                                <label for="seat29">29</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat30">
+                                                <label for="seat30">30</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat31">
+                                                <label for="seat31">31</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat32">
+                                                <label for="seat32">32</label>
+                                            </div>
+                                            
+                                            <!-- Ninth row -->
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat33">
+                                                <label for="seat33">33</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat34">
+                                                <label for="seat34">34</label>
+                                            </div>
+                                            <div class="column-space"></div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat36">
+                                                <label for="seat36">36</label>
+                                            </div>
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat37">
+                                                <label for="seat37">37</label>
+                                            </div>
+            
+            
+                                            <div class="seat">
+                                                <input type="checkbox" id="seat35">
+                                                <label for="seat35" style="    width: 18rem !important;">35</label>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                               
+							</div>
+
+
+							<div class="col-xl-6 col-lg-8 col-md-12">
+								<div class="card border-0 mb-4">
+									<div class="card-body ">
+										<div class="crd-block d-md-flex align-items-start justify-content-start">
+											<div class="crd-heaader-0 flex-shrink-0 mb-3 mb-md-0">
+												<div class="square--70 rounded-2 bg-light-primary text-primary fs-3"><i class="fas fa-solid fa-bus"></i></div>
+											</div>
+											<div class="crd-heaader-first ps-md-3">
+												{% comment %} <div class="d-inline-flex align-items-center mb-1">
+													<span class="label fw-medium bg-light-success text-success">Business Class</span>
+												</div> {% endcomment %}
+												<div class="d-block">
+													<h4 class="mb-0">{{bus.boarding_point.name}}<span class="text-muted-2 mx-3"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>{{last_dropping_point.dropping_point.name}}</h4>
+													<div class="explotter-info">
+														<p class="detail ellipsis-container fw-semibold">
+															<span class="ellipsis-item__normal">{{bus.boarding_date}}</span>
+															<span class="separate ellipsis-item__normal"></span>
+															<span class="ellipsis-item">{{bus.route_dropping_points.route_dropping_point.all.count}} Stop</span>
+															<span class="separate ellipsis-item__normal"></span>
+															<span class="ellipsis-item">{{travel_duration}}</span>
+														</p>
+													</div>
+												</div>
+											</div>
+											
+											
+												
+										</div>
+									
+										<div class="card-footer bg-white border-top py-3">
+											<div class="text-start text-md-end">
+												{% if discount %}
+												<span class="label bg-light-success text-success me-1">{{discount_percent}}% Off</span>
+												{% endif %}
+												<div class="text-dark fs-3 fw-bold lh-base d-flex " style="    align-items: baseline;justify-content: end;">
+													<p class="text-sm text-muted"> (Per Seat )</p> 	
+													₹ {{bus.base_price}}
+												
+												</div>
+												<div class="text-muted text-sm mb-2">Non Refundable</div>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+								
+								<!-- Flight Info -->
+								<div class="card border-0 mb-4">
+									<div class="card-body">
+										<div class="flights-accordion">
+											<div class="flights-list-item">
+												<div class="row gy-4 align-items-center justify-content-between">
+
+													<div class="col">
+														<div class="row">
+															<div class="col-xl-12 col-lg-12 col-md-12 d-flex justify-content-between">
+																<div class="d-flex align-items-center mb-2">
+																	<span class="label bg-light-primary text-primary me-2">Departure</span>
+																	<span class="text-muted text-sm">{{bus.boarding_date }}</span>
+																</div>
+		
+																<div class="d-flex align-items-center mb-2">
+																	<span class="text-bold text-large">Available Seats : {{available_seats}}</span>
+																</div>
+																
+															</div>
+															
+															<div class="col-xl-12 col-lg-12 col-md-12">
+																<div class="row gx-lg-5 gx-3 gy-4 align-items-center">
+		
+																	<div class="col-sm-auto">
+																		<div class="d-flex align-items-center justify-content-start">
+																			
+																			<div class="d-end fl-title ps-2">
+																				<div class="text-dark fw-medium">Kavya Travels</div>
+																			</div>
+																		</div>
+																		<div class="text-muted fw-sm">{% for j in bus.facilites.all %}
+																		{{j.name}}, 
+																		{% endfor %}</div>
+		
+																	</div>
+		
+																	<div class="col">
+																		<div class="row gx-3 align-items-center">
+																			<div class="col-auto">
+																				<div class="text-dark fw-bold">{{bus.boarding_time}}</div>
+																				<div class="text-muted text-sm fw-medium">{{bus.boarding_point.name}}</div>
+																			</div>
+		
+																			<div class="col text-center">
+																				<span class="svg-icon svg-icon-muted svg-icon-2hx px-1">
+																					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																					  <path
+																						d="M17.4 7H4C3.4 7 3 7.4 3 8C3 8.6 3.4 9 4 9H17.4V7ZM6.60001 15H20C20.6 15 21 15.4 21 16C21 16.6 20.6 17 20 17H6.60001V15Z"
+																						fill="currentColor" />
+																					  <path opacity="0.3"
+																						d="M17.4 3V13L21.7 8.70001C22.1 8.30001 22.1 7.69999 21.7 7.29999L17.4 3ZM6.6 11V21L2.3 16.7C1.9 16.3 1.9 15.7 2.3 15.3L6.6 11Z"
+																						fill="currentColor" />
+																					</svg>
+																				  </span>
+																				{% comment %} <div class="text-muted text-sm fw-medium mt-3">Thane</div> {% endcomment %}
+																			</div>
+		
+																			<div class="col-auto">
+																				<div class="text-dark fw-bold">{{bus.dropping_time}}</div>
+																				<div class="text-muted text-sm fw-medium">{{ last_dropping_point.dropping_point.name}}</div>
+																			</div>
+																		</div>
+																	</div>
+		
+																	<div class="col-md-auto">
+																		<div class="text-dark fw-medium">{{travel_duration}}</div>
+																		<div class="text-muted text-sm fw-medium">{{bus.route_dropping_points.route_dropping_point.all.count}} Stop</div>
+																	</div>
+																</div>
+																<div class="d-flex justify-content-center align-items-center">
+																	<p>{{bus.boarding_point.name}} </p> 
+																	<p> {% for j in bus.route_dropping_points.route_dropping_point.all  %}
+																		 - {{j.dropping_point.name}}
+																	{% endfor %} </p> 
+																</div>
+		
+															</div>
+														</div>
+		
+													
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                                <div>
+                                    <button class="btn btn-info btn-md fw-medium full-width"href="#" data-bs-toggle="modal" data-bs-target="#edit-info" >
+                                        edit<i class="fa-solid fa-arrow-trend-up ms-2"></i>
+                                    </button>
+                                </div> 
+
+                                <div class="mt-2">
+									<p id = "seatCount2">Selected Seats : 0</p> 
+                                    <form action="{% url 'bus-details' bus.id %}?option=bookedSeats" method="POST" >
+										{% csrf_token %}
+                                        <input type="hidden" id="selectedSeatsInput" name="selectedSeats">
+                                        <input type="hidden" id="routeID" name="routeID" value="{{bus.id}}">
+                                        <input type="hidden" id="seatCountInput" name="seatCount">
+                                        
+                                        
+                                        <label for="">Confirm</label>
+                                        <input type="checkbox" required>
+                                        <button class="btn btn-primary btn-md fw-medium full-width" type="submit">
+                                            Confirm<i class="fa-solid fa-arrow-trend-up ms-2"></i>
+                                        </button>
+                                    </form>
+                                </div> 
+		
+								
+							</div>
+							
+							
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Hotel Details End ================================== -->
+
+
+
+
+
+		<!-- Log In Modal -->
+		<div class="modal fade" id="edit-info" tabindex="-1" role="dialog" aria-labelledby="edit-infomodal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+			  <div class="modal-content" id="edit-infomodal">
+				<div class="modal-header">
+				  <h4 class="modal-title fs-6">Edit</h4>
+				  <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+					  class="fa-solid fa-square-xmark"></i></a>
+				</div>
+				<div class="popup-seat-selector">
+
+					<form action="{% url 'bus-details' bus.id %}" method="POST">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-md">
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to" class="">Bus No.:</label>
+											<input type="text" class="form-control" name="bus_no" value="{{bus.bus_no}}" required id="to">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to1" class="">Boarding Date</label>
+											<input type="date" class="form-control" name="boarding_date" value="{{bus.boarding_date |date:'Y-m-d' }}" required id="to1">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+							   
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to2" class="">Boarding Time:</label>
+											<input type="time" class="form-control" name="boarding_time" value="{{bus.boarding_time | date:'H:i'}}" required id="to2">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to3" class="">Boarding Point:</label>
+											<select  id="" class="form-control" name="boarding_point" required>
+												<option disabled>Select</option>
+												{% for i in boardingpoint %}
+												<option value="{{i.id}}" {% if i.id == bus.boarding_point.id %}selected{% endif %} >{{i.name}}</option>
+
+												{% endfor %}
+											</select> 
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+							  
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to4" class="">Route:</label>
+											<select name="route_dropping_points"  class="form-control" required>
+												<option disabled>Select</option>
+												{% for i in routes %}
+												<option value="{{i.id}}" {% if bus.route_dropping_points.id == i.id %}selected{% endif %} >{{i.name}}</option>
+
+												{% endfor %}
+											</select>
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+									
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to6" class="">Dropping Time:</label>
+											<input type="time" class="form-control" name="dropping_time" value="{{bus.dropping_time| date:'H:i'}}" required id="to6">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Dropping Date:</label>
+											<input type="date" class="form-control text-center" name="dropping_date" value="{{bus.dropping_date | date:'Y-m-d' }}" required id="to7">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Toal Seats : </label>
+											<input type="number" min="0" value="50" class="form-control text-center" name="total_seats" value="{{bus.total_seats}}" required id="to8">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Base Price : </label>
+											<input type="number" min="0"  class="form-control text-center" name="base_price" value="{{bus.base_price}}" required id="to9">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Last Price : </label>
+											<input type="number" min="0"  class="form-control text-center" name="price_drop_to" value="{{bus.price_drop_to}}" required id="to10">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+
+
+
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to5" class="">Facilities:</label>
+											<div class="multi-select">
+												<div class="select-box" onclick="toggleDropdown()">
+													<select>
+														<option>Select Facilities</option>
+													</select>
+													<div class="over-select"></div>
+												</div>
+												<div id="checkboxes" style="display: none; flex-direction: column; align-content: center; flex-wrap: wrap; align-items: flex-start;">
+													{% for i in busfacility %}
+													<label for="facility-{{ i.id }}">
+														<input type="checkbox" id="facility-{{ i.id }}" value="{{ i.id }}" 
+															   onclick="updateSelectedFacilities()"/> {{ i.name }}
+													</label>
+													{% endfor %}
+													<input type="hidden" name="facilities" id="facilities" value="{{ selected_facilities }}">
+												</div>
+											</div>
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+
+									
+									<div class="col-md">
+										<div class="form-group">
+											<label for="to7" class="">Confirm : </label>
+											<input type="checkbox" required id="to11">
+										</div><!-- end form-group -->
+									</div><!-- End column -->
+								</div><!-- end row -->
+
+
+							
+										
+										<button type="submit" class="btn btn-primary btn-md fw-medium full-width" type="submit">Save </button>
+								   
+								</ul>
+							</div><!-- End column -->
+						
+						</div><!-- end row -->
+					</form>
+				</div> 
+
+			  </div>
+			</div>
+		</div>
+		  <!-- End Modal -->
+
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		  <script>
+			const bookedSeats = {{ booked_seats|safe }};
+			document.addEventListener("DOMContentLoaded", function() {
+				bookedSeats.forEach(seat => {
+					const seatCheckbox = document.getElementById(`seat${seat}`);
+					if (seatCheckbox) {
+						seatCheckbox.disabled = true;
+						seatCheckbox.nextElementSibling.classList.add('booked');
+					}
+				});
+			});
+
+
+			document.addEventListener('DOMContentLoaded', function() {
+				const seats = document.querySelectorAll('.seat input[type="checkbox"]');
+				const selectedSeatsInput = document.getElementById('selectedSeatsInput');
+				const seatCountInput = document.getElementById('seatCountInput');
+				const seatCountInput2 = document.getElementById('seatCount2');
+			
+				seats.forEach(seat => {
+					seat.addEventListener('change', updateSelectedSeats);
+				});
+			
+				function updateSelectedSeats() {
+					const selectedSeats = Array.from(seats)
+						.filter(seat => seat.checked)
+						.map(seat => seat.id.replace('seat', ''));
+			
+					const seatCount = selectedSeats.length;
+			
+					selectedSeatsInput.value = selectedSeats.join(',');
+					seatCountInput2.innerHTML = "Selected Seats : " + seatCount;
+					seatCountInput.value = seatCount;
+					console.log(selectedSeatsInput.value);
+				}
+			});
+		  </script>
+
+		  
+<script>
+    // script.js
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Set min attribute for date inputs to block dates earlier than today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('to1').setAttribute('min', today);
+        document.getElementById('to7').setAttribute('min', today);
+    });
+
+    
+	let expanded = false;
+
+	function toggleDropdown() {
+		const checkboxes = document.getElementById("checkboxes");
+		if (!expanded) {
+			checkboxes.style.display = "flex";
+			expanded = true;
+		} else {
+			checkboxes.style.display = "none";
+			expanded = false;
+		}
+	}
+	
+	function updateSelectedFacilities() {
+		const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+		const selectedFacilities = [];
+		checkboxes.forEach(checkbox => {
+			if (checkbox.checked) {
+				selectedFacilities.push(checkbox.value);
+			}
+		});
+		document.getElementById('facilities').value = selectedFacilities.join(',');
+		updateSelectBox(selectedFacilities);
+	}
+	
+	function updateSelectBox(selectedFacilities) {
+		const selectBox = document.querySelector('.select-box select');
+		if (selectedFacilities.length === 0) {
+			selectBox.innerHTML = '<option>Select Facilities</option>';
+		} else {
+			const facilityNames = selectedFacilities.map(id => {
+				const label = document.querySelector(`label[for="facility-${id}"]`);
+				return label ? label.textContent.trim() : '';
+			}).filter(name => name !== '');
+			selectBox.innerHTML = `<option>${facilityNames.join(', ')}</option>`;
+		}
+	}
+	
+	// Initialize the hidden input and checkboxes with pre-selected facilities
+	document.addEventListener('DOMContentLoaded', function() {
+		const facilitiesInput = document.getElementById('facilities');
+		const preSelectedFacilities = facilitiesInput.value.split(',').filter(id => id !== '');
+		
+		preSelectedFacilities.forEach(id => {
+			const checkbox = document.getElementById(`facility-${id}`);
+			if (checkbox) {
+				checkbox.checked = true;
+			}
+		});
+	
+		updateSelectedFacilities();
+	});
+	
+	// Optional: close dropdown when clicking outside
+	window.onclick = function(event) {
+		const checkboxes = document.getElementById("checkboxes");
+		if (!event.target.matches('.select-box') && !event.target.closest('.select-box')) {
+			checkboxes.style.display = "none";
+			expanded = false;
+		}
+	}
+</script>
+		{% endblock body %}

@@ -110,9 +110,8 @@
 											{% for i in busfacility %}
 											
 											<li class="col-6">
-												<input type="checkbox" class="btn-check" id="Facilities{{forloop.counter}}" value="{{i.name}}">
-												<label class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width"
-												for="Facilities{{forloop.counter}}">{{i.name}}</label>
+												<a href="{% url 'available_routes' %}?facilities={{i.id}}" class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width"
+												for="Facilities{{forloop.counter}}">{{i.name}}</a>
 											</li>
 											{% endfor %}
 											
@@ -120,7 +119,7 @@
 									</div>
 
 
-									<div class="searchBar-single-title d-flex mb-3">
+									{% comment %} <div class="searchBar-single-title d-flex mb-3">
 										<h6 class="sidebar-subTitle fs-6 fw-medium m-0">Departure</h6>
 									</div>
 									<div class="searchBar-single-wrap mb-4">
@@ -146,36 +145,9 @@
 													6PM</label>
 											</li>
 										</ul>
-									</div>
+									</div> {% endcomment %}
 
-									<div class="searchBar-single-title d-flex mb-3">
-										<h6 class="sidebar-subTitle fs-6 fw-medium m-0">Return</h6>
-									</div>
-									<div class="searchBar-single-wrap">
-										<ul class="row align-items-center justify-content-between p-0 gx-3 gy-2">
-											<li class="col-6">
-												<input type="checkbox" class="btn-check" id="before6am1">
-												<label class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width"
-													for="before6am1">Before 6AM</label>
-											</li>
-											<li class="col-6">
-												<input type="checkbox" class="btn-check" id="6am12pm1">
-												<label class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width" for="6am12pm1">6AM -
-													12PM</label>
-											</li>
-											<li class="col-6">
-												<input type="checkbox" class="btn-check" id="12pm6pm1">
-												<label class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width" for="12pm6pm1">12PM
-													- 6PM</label>
-											</li>
-											<li class="col-6">
-												<input type="checkbox" class="btn-check" id="after6pm1">
-												<label class="btn btn-sm btn-secondary rounded-1 fw-medium px-4 full-width"
-													for="after6pm1">After 6PM</label>
-											</li>
-										</ul>
-									</div>
-
+								
 								</div>
 
 						
@@ -191,16 +163,19 @@
 							<div class="pags card py-2 px-5">
 								<nav aria-label="Page navigation example">
 									<ul class="pagination m-0 p-0">
+										{% if previous %}
 										<li class="page-item">
-											<a class="page-link" href="#" aria-label="Previous">
+											<a class="page-link" href="{% url 'available_routes' %}?boarding_date={{previous | date:'Y-m-d'}}" aria-label="Previous">
 												<span aria-hidden="true"><i class="fa-solid fa-arrow-left-long"></i></span>
 											</a>
 										</li>
-										<li class="page-item active"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										{% endif %}
+
+										<li class="page-item active"><a class="page-link" href="{% url 'available_routes' %}?boarding_date={{current | date:'Y-m-d'}}">{{current | date:'d M'}}</a></li>
+										<li class="page-item"><a class="page-link" href="{% url 'available_routes' %}?boarding_date={{tomorrow | date:'Y-m-d'}}">{{tomorrow | date:'d M'}}</a></li>
+										
 										<li class="page-item">
-											<a class="page-link" href="#" aria-label="Next">
+											<a class="page-link" href="{% url 'available_routes' %}?boarding_date={{tomorrow | date:'Y-m-d'}}" aria-label="Next">
 												<span aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></span>
 											</a>
 										</li>

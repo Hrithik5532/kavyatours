@@ -94,3 +94,88 @@ class NewRoute(models.Model):
 def update_status(sender, instance, **kwargs):
     if instance.boarding_date < timezone.now().date():
         instance.status = False
+
+
+
+from django.db.models import Max
+import re
+
+
+class PaymentDetails(models.Model):
+    id = models.CharField(primary_key=True, max_length=9, editable=False, unique=True)
+    customer_name = models.CharField(max_length=100)
+    customer_email = models.EmailField(null=True, blank=True)
+    customer_phone = models.CharField(max_length=100)
+    customer_address = models.CharField(max_length=100,null=True, blank=True)
+    
+    payment_id = models.CharField(max_length=100, blank=True, null=True)
+    payment_status = models.CharField(max_length=100, blank=True, null=True)
+    payment_amount = models.CharField(max_length=100, blank=True, null=True)
+    
+    upi_response = models.TextField()
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    refunded  = models.BooleanField(default=False)
+    
+    
+    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.id = self.get_next_id()
+        super().save(*args, **kwargs)
+
+    def get_next_id(self):
+        # Get the last id in the sequence
+        last_id = PaymentDetails.objects.all().aggregate(max_id=Max('id'))['max_id']
+        if last_id:
+            # Extract the numeric part of the last ID and increment it
+            numeric_part = int(re.search(r'\d+', last_id).group())
+            next_numeric_part = numeric_part + 1
+        else:
+            # Start the sequence if no entries exist
+            next_numeric_part = 1
+        
+        # Format the new ID with leading zeros
+        next_id = f"P-{next_numeric_part:06d}"
+        return next_id
+    
+    
+class BookingDetails(models.Model):
+    id = models.CharField(primary_key=True, max_length=9, editable=False, unique=True)
+    user = models.ForeignKey('Home.User', on_delete=models.CASCADE)
+    bus = models.ForeignKey(NewRoute, on_delete=models.CASCADE)
+    payment = models.ForeignKey(PaymentDetails, on_delete=models.CASCADE)
+    seat_number = models.CharField(max_length=100, blank=True, null=True)
+    total_seats = models.IntegerField(default=1)
+    total_price = models.IntegerField(default=0)
+    base_price = models.IntegerField(default=0)
+    
+    
+    booking_date = models.DateField(auto_now_add=True)
+    status = models.BooleanField(default=False)
+    
+    
+    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.id = self.get_next_id()
+        super().save(*args, **kwargs)
+
+    def get_next_id(self):
+        # Get the last id in the sequence
+        last_id = BookingDetails.objects.all().aggregate(max_id=Max('id'))['max_id']
+        if last_id:
+            # Extract the numeric part of the last ID and increment it
+            numeric_part = int(re.search(r'\d+', last_id).group())
+            next_numeric_part = numeric_part + 1
+        else:
+            # Start the sequence if no entries exist
+            next_numeric_part = 1
+        
+        # Format the new ID with leading zeros
+        next_id = f"B-{next_numeric_part:06d}"
+        return next_id
+    
+    

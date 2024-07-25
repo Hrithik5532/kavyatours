@@ -15,6 +15,9 @@ urlpatterns = [
     path('all-boarding-points', views.all_boarding_points, name='all-boarding-points'),
     path('all-dopping-points', views.all_dropping_points, name='all-dropping-points'),
     path('all-facilities', views.all_facilities, name='all-facilities'),
+    
+    
+    path('all-messages', views.all_messages, name='all-messages'),
 
 
 ]

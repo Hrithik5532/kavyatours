@@ -113,7 +113,7 @@
                   
                </li>
 
-              <li><a href="JavaScript:Void(0);">Gallery<span class="submenu-indicator"></span></a>
+              <li><a href="{% url 'gallery' %}">Gallery<span class="submenu-indicator"></span></a>
               </li>
 
               <li><a href="{% url 'about' %}">About<span class="submenu-indicator"></span></a>
@@ -176,8 +176,11 @@
                   </div>
                   <div class="footer-add pe-xl-3">
                     <p>We make journey with Comfort and Confidence..</p>
+                    <p>Floor 2, RIDDHI SIDDHI CHAWL NO.2, NEAR N G
+                      PARK,SHIV VALLABH CROSS
+                      ROAD,RAWALPADA, DAHISAR (E), 400068.</p> 
                   </div>
-                  <div class="foot-socials">
+                  {% comment %} <div class="foot-socials">
                     <ul>
                       <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>
                       <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>
@@ -185,7 +188,7 @@
                       <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>
                       <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>
                     </ul>
-                  </div>
+                  </div> {% endcomment %}
                 </div>
               </div>
               <div class="col-lg-2 col-md-4">
@@ -206,10 +209,10 @@
                 <div class="footer-widget">
                   <h4 class="widget-title">Useful Links</h4>
                   <ul class="footer-menu">
-                    <li><a href="JavaScript:Void(0);">Profile</a></li>
-                    <li><a href="JavaScript:Void(0);">Gallery</a></li>
-                    <li><a href="JavaScript:Void(0);">About Us</a></li>
-                    <li><a href="JavaScript:Void(0);">Testimonials</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'home' %}#testimonials">Testimonials</a></li>
                   
                   </ul>
                 </div>
@@ -235,17 +238,12 @@
                   </div>
                   <div class="our-prtwrap mt-4">
                     <div class="prtn-title">
-                      <p class="text-muted-2 fw-medium">Our Partners</p>
+                      <p class="text-muted-2 fw-medium">Contact Info</p>
                     </div>
                     <div class="prtn-thumbs d-flex align-items-center justify-content-start">
                       <div class="pmt-wrap pe-4">
-                        <img src="../static/img/mytrip.png" class="img-fluid" alt="">
-                      </div>
-                      <div class="pmt-wrap pe-4">
-                        <img src="../static/img/tripadv.png" class="img-fluid" alt="">
-                      </div>
-                      <div class="pmt-wrap pe-4">
-                        <img src="../static/img/goibibo.png" class="img-fluid" alt="">
+                        <a href="mailto:Kavyatravels24@gmail.com"> Kavyatravels24@gmail.com</a> <br>
+                        <a href="tel:"> 987654321</a>
                       </div>
                     </div>
                   </div>
